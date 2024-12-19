@@ -142,4 +142,7 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
+  # timedatectl
+  services.timesyncd.enable = true;
+
 }
