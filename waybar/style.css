@@ -1,0 +1,129 @@
+@import "macchiato.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 13px;
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+button {
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+  background: inherit;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+  background-color: @surface2;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background-color: transparent;
+  color: #ffffff;
+}
+
+
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+  background-color: @lavender;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#mode {
+  background-color: #64727D;
+  box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#cpu,
+#pulseaudio {
+  padding: 0 10px;
+}
+
+#pulseaudio {
+  color: @red;
+}
+
+#battery {
+  color: @green;
+}
+
+#cpu {
+    color: @yellow
+}
+
+#memory {
+    color: @green
+}
+
+#clock {
+    color: @white;
+}
+
+#window {
+    color: @white;
+}
+
+.modules-right{
+    background-color: @base;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.modules-left {
+    background-color: @base;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.modules-center {
+    background-color: @base;
+    border-radius: 15px;
+}
+
+.modules-right {
+    padding: 0 10px;
+}
+
+.modules-left {
+    padding: 0 20px;
+}
+
+.modules-center {
+    padding: 0 10px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @sapphire;
+}
+
+@keyframes blink {
+  to {
+    color: #000000;
+  }
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#pulseaudio.muted {
+  color: @text;
+}
