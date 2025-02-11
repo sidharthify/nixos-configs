@@ -1,4 +1,3 @@
-
 { config, pkgs, lib, ... }:
 
 {
@@ -20,7 +19,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.interfaces.wlp3s0.useDHCP = false;
+  networking.resolvconf.enable = false;
+  networking.nameservers = [ "192.168.1.1" ];
+  networking.interfaces."wlp3s0".mtu = 1458;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -45,9 +47,8 @@
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = [ pkgs.kdePackages.elisa pkgs.kdePackages.konsole pkgs.kdePackages.dolphin pkgs.kdePackages.ark ];
+  services.displayManager.sddm.enable = true; 
+  services.desktopManager.plasma6.enable = true; 
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -59,7 +60,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -98,7 +99,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim 
-    pkgs.sof-firmware
+    sof-firmware
     wget
     neofetch
     git
@@ -109,45 +110,47 @@
     python3Full
     python312Packages.pip
     hyfetch
-    kitty
-    waybar
     libnotify
-    mako
-    swww
-    rofi-wayland
-    grim 
-    slurp
-    wl-clipboard
-    hyprpaper
     font-awesome
-    hyprshot
     swaynotificationcenter    
-    hyprlock
     stow
-    starship
     nwg-look
     lutris-unwrapped
     wineWowPackages.stable
-    alacritty
     killall 
-    wofi
-    wofi-emoji
     pywal    
-    hyprpicker
     unzip
     unrar
     catppuccin-gtk
     protonup-qt
     obs-studio
     mangohud
-    nemo-with-extensions
     w3m
     imagemagick
     networkmanager
     networkmanager_dmenu
     picom
-    swaybg
     gh
+    mgba
+    rpcs3
+    haruna
+    tenacity
+    gamescope
+    qbittorrent
+    dxvk
+    vkd3d
+    vulkan-tools
+    gtk3
+    protonvpn-gui
+    lm_sensors
+    hexyl
+    gnome-themes-extra
+    zenity
+    osu-lazer
+    quota
+    ani-cli
+    drawpile
+    mtr-gui
 ];
 
   # Enable the OpenSSH daemon.
@@ -156,10 +159,17 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [mangohud];
-    extraPackages32 = with pkgs; [mangohud];      
+hardware.graphics = {
+  enable = true;
+  extraPackages = with pkgs; [
+    vulkan-loader
+    vulkan-validation-layers
+    vulkan-tools
+  ];
+  
+  extraPackages32 = with pkgs.pkgsi686Linux; [
+    vulkan-loader
+  ];
 };
 
   # Load nvidia driver for Xorg and Wayland
@@ -190,12 +200,19 @@
     open = false;
 
     # Enable the Nvidia settings menu,
-	# accessible via `nvidia-settings`.
+        # accessible via `nvidia-settings`.
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = pkgs.linuxPackages.nvidia_x11.overrideAttrs (oldAttrs: {
+  version = "550.144.03";
+  src = pkgs.fetchurl {
+    url = "https://in.download.nvidia.com/XFree86/Linux-x86_64/550.144.03/NVIDIA-Linux-x86_64-550.144.03.run";
+    sha256 = "6a4838e2cdb26e4c0e07367ac0d3bcf799d56b5286f68fa201be3d3ddb88aac4";
   };
+});
+};
+  
 
 # Load snd_hda_intel
 boot.kernelModules = [ "snd_hda_intel" ];
@@ -221,12 +238,6 @@ programs.steam = {
   remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
   dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-};
-
-# Enabling hyprland on NixOS
-programs.hyprland = {
-  enable = true;
-  xwayland.enable = true;
 };
 
 # XDG portal
@@ -268,9 +279,9 @@ programs.virt-manager.enable = true;
 # flatpaks
 services.flatpak.enable = true;
 
-# cinnamon
-services.cinnamon.apps.enable = true;
-programs.gnome-terminal.enable = false;
+# coolercontrol
+programs.coolercontrol.enable = true;
+programs.coolercontrol.nvidiaSupport = true;
 
 }
 
