@@ -172,6 +172,11 @@
     at-spi2-core
     steam-run
     nss
+    fastfetch
+    vscodium
+    anydesk
+    easyeffects
+    lsp-plugins
 ];
 
   # Enable the OpenSSH daemon.
@@ -307,6 +312,7 @@ programs.coolercontrol.nvidiaSupport = true;
 # waydroid
 virtualisation.waydroid.enable = true;
 
+# kde partition manager
+programs.partition-manager.enable = true;
+
 }
-
-
