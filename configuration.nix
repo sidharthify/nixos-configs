@@ -1,4 +1,3 @@
-
 { config, pkgs, lib, ... }:
 
 {
@@ -10,6 +9,11 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  # Faster initrd
+  boot.initrd.systemd.enable = true;
+  boot.initrd.kernelModules = [ "lz4" ];
+  boot.kernelParams = [ "quiet" "fastboot" "noautogroup" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -177,6 +181,15 @@
     anydesk
     easyeffects
     lsp-plugins
+    tmate-ssh-server
+    tmate
+    pipx
+    brave
+    blueman
+    p7zip
+    pavucontrol
+    file
+    erofs-utils
 ];
 
   # Enable the OpenSSH daemon.
@@ -251,6 +264,9 @@ boot.extraModprobeConfig = ''
 # Enable Bluetooth
 hardware.bluetooth.enable = true;
 hardware.bluetooth.powerOnBoot = true;
+hardware.bluetooth.settings = {
+  General = { Experimental = true; };
+};
 
 # Adding user to audio group
 users.extraUsers.sidharthify = {
@@ -315,4 +331,13 @@ virtualisation.waydroid.enable = true;
 # kde partition manager
 programs.partition-manager.enable = true;
 
+# tmate
+services.tmate-ssh-server.enable = true;
+
+# docker
+virtualisation.docker.enable = true;
+
+# zram
+zramSwap.enable = true;
+zramSwap.memoryPercent = 80;
 }
