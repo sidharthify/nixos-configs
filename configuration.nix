@@ -1,3 +1,4 @@
+
 { config, pkgs, lib, ... }:
 
 {
@@ -10,10 +11,26 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
-  # Faster initrd
+  # Faster boot time
   boot.initrd.systemd.enable = true;
   boot.initrd.kernelModules = [ "lz4" ];
-  boot.kernelParams = [ "quiet" "fastboot" "noautogroup" ];
+  boot.kernelParams = [ "quiet" "fastboot" "noautogroup" "console=tty0"];
+  boot.plymouth.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.extraConfig = "DefaultTimeoutStartSec=5s";
+  systemd.services = {
+  acpid.enable = false;
+  ModemManager.enable = false;
+  nscd.enable = false;
+  "tmate-ssh-server".enable = false;
+  "waydroid-container".enable = false;
+  "libvirt-guests".enable = false;
+  libvirtd.enable = false;
+  systemd-oomd.enable = false;
+  "mount-pstore".enable = false;
+  "prepare-kexec".enable = false;
+  "generate-shutdown-ramfs".enable = false;
+};
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -190,6 +207,17 @@
     pavucontrol
     file
     erofs-utils
+    edid-decode
+    scrcpy
+    prismlauncher
+    glfw
+    glew
+    libGL
+    libglvnd
+    libGLU
+    pacman
+    xkeyboard_config
+    glfw-wayland-minecraft
 ];
 
   # Enable the OpenSSH daemon.
@@ -243,15 +271,8 @@ hardware.graphics = {
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.linuxPackages.nvidia_x11.overrideAttrs (oldAttrs: {
-  version = "550.144.03";
-  src = pkgs.fetchurl {
-    url = "https://in.download.nvidia.com/XFree86/Linux-x86_64/550.144.03/NVIDIA-Linux-x86_64-550.144.03.run";
-    sha256 = "6a4838e2cdb26e4c0e07367ac0d3bcf799d56b5286f68fa201be3d3ddb88aac4";
-  };
-});
+    package = config.boot.kernelPackages.nvidiaPackages.stable;  
 };
-  
 
 # Load snd_hda_intel
 boot.kernelModules = [ "snd_hda_intel" ];
@@ -340,4 +361,10 @@ virtualisation.docker.enable = true;
 # zram
 zramSwap.enable = true;
 zramSwap.memoryPercent = 80;
+
+# firewall
+networking.firewall. enable = false;
+
+# kde-connect
+programs.kdeconnect.enable = true;
 }
