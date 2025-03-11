@@ -1,4 +1,3 @@
-
 { config, pkgs, lib, ... }:
 
 {
@@ -45,6 +44,7 @@
   networking.resolvconf.enable = false;
   networking.nameservers = [ "192.168.1.1" ];
   networking.interfaces."wlp3s0".mtu = 1458;
+  networking.firewall.allowedTCPPorts = [ 25565 ];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -112,7 +112,7 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -127,8 +127,6 @@
     git
     vesktop
     telegram-desktop
-    spotify
-    spotify-player
     python3Full
     python312Packages.pip
     hyfetch
@@ -218,6 +216,13 @@
     pacman
     xkeyboard_config
     glfw-wayland-minecraft
+    spicetify-cli
+    zip
+    spotify-player
+    jdk21
+    floorp
+    git-repo
+    gnumake
 ];
 
   # Enable the OpenSSH daemon.
@@ -363,8 +368,17 @@ zramSwap.enable = true;
 zramSwap.memoryPercent = 80;
 
 # firewall
-networking.firewall. enable = false;
+networking.firewall.enable = false;
 
 # kde-connect
 programs.kdeconnect.enable = true;
+
+# playit.gg
+  services.playit = {
+    enable = true;
+    user = "playit";
+    group = "playit";
+    secretPath = "/home/sidharthify/.config/playit_gg/playit.toml";  # adjust this if needed
+  };
+
 }
