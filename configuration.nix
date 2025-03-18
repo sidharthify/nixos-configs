@@ -1,3 +1,4 @@
+
 { config, pkgs, lib, ... }:
 
 {
@@ -10,27 +11,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
-  # Faster boot time
-  boot.initrd.systemd.enable = true;
-  boot.initrd.kernelModules = [ "lz4" ];
-  boot.kernelParams = [ "quiet" "fastboot" "noautogroup" "console=tty0"];
-  boot.plymouth.enable = false;
-  systemd.services.NetworkManager-wait-online.enable = false;
-  systemd.extraConfig = "DefaultTimeoutStartSec=5s";
-  systemd.services = {
-  acpid.enable = false;
-  ModemManager.enable = false;
-  nscd.enable = false;
-  "tmate-ssh-server".enable = false;
-  "waydroid-container".enable = false;
-  "libvirt-guests".enable = false;
-  libvirtd.enable = false;
-  systemd-oomd.enable = false;
-  "mount-pstore".enable = false;
-  "prepare-kexec".enable = false;
-  "generate-shutdown-ramfs".enable = false;
-};
-
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -120,7 +100,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    alacritty
     vim 
+    sudo
     sof-firmware
     wget
     neofetch
@@ -128,7 +110,6 @@
     vesktop
     telegram-desktop
     python3Full
-    python312Packages.pip
     hyfetch
     libnotify
     font-awesome
@@ -223,6 +204,20 @@
     floorp
     git-repo
     gnumake
+    coreutils
+    autoconf
+    automake
+    axel
+    bc
+    bison
+    ccache
+    winetricks
+    ripgrep    
+    openssl
+    meld
+    git-lfs
+    yt-dlp
+    vinegar
 ];
 
   # Enable the OpenSSH daemon.
@@ -276,7 +271,13 @@ hardware.graphics = {
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;  
+    package = pkgs.linuxPackages.nvidia_x11.overrideAttrs (oldAttrs: {
+   version = "550.144.03";
+   src = pkgs.fetchurl {
+    url = "https://in.download.nvidia.com/XFree86/Linux-x86_64/550.144.03/NVIDIA-Linux-x86_64-550.144.03.run";
+    sha256 = "6a4838e2cdb26e4c0e07367ac0d3bcf799d56b5286f68fa201be3d3ddb88aac4";
+   };
+});  
 };
 
 # Load snd_hda_intel
@@ -365,7 +366,8 @@ virtualisation.docker.enable = true;
 
 # zram
 zramSwap.enable = true;
-zramSwap.memoryPercent = 80;
+zramSwap.memoryPercent = 100;
+zramSwap.priority = 100;
 
 # firewall
 networking.firewall.enable = false;
@@ -380,5 +382,12 @@ programs.kdeconnect.enable = true;
     group = "playit";
     secretPath = "/home/sidharthify/.config/playit_gg/playit.toml";  # adjust this if needed
   };
+
+# security.sudo
+security.sudo.enable = true;
+nix.settings.trusted-users = [ "root" "sidharthify" ];
+
+# nix-ld 
+programs.nix-ld.enable = true;
 
 }
