@@ -387,7 +387,7 @@ programs.zsh = {
 
   shellAliases = {
     ll = "ls -l";
-    update = "sudo /usr/bin/nixos-rebuild-sync switch";  
+    update = "sudo nixos-rebuild switch";  
 };
 
   histSize = 10000;
@@ -406,6 +406,10 @@ programs.zsh = {
 
       echo "🌬️ setting GPU fan speed to $1%"
       sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY nvidia-settings -a GPUFanControlState=1 -a GPUTargetFanSpeed=$1
+    }
+    
+    syncnix() {
+      sudo /usr/bin/nixos-rebuild-sync "$@"
     }
   '';
 };
