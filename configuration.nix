@@ -378,7 +378,7 @@ programs.nix-ld.enable = true;
 # openrgb
 services.hardware.openrgb.enable = true;
 
-# zsh (with the 'setfanspeed' and 'nixos-rebuild switch' function)
+# zsh (with the 'setfanspeed' function)
 programs.zsh = {
   enable = true;
   enableCompletion = true;
@@ -404,22 +404,8 @@ programs.zsh = {
         return 1
       fi
 
-      echo "🌬 setting GPU fan speed to $1%"
+      echo "🌬️ setting GPU fan speed to $1%"
       sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY nvidia-settings -a GPUFanControlState=1 -a GPUTargetFanSpeed=$1
-    }
-
-    nixos-rebuild-sync() {
-      sudo nixos-rebuild "$@"
-      cd /etc/nixos || return
-
-      if [[ -n "$(git status --porcelain)" ]]; then
-        git add .
-        git commit -m "nixos config auto-sync: $(date '+%Y-%m-%d %H:%M:%S')"
-        git push
-        echo "✅ /etc/nixos changes pushed."
-      else
-        echo "🟢 no changes to commit."
-      fi
     }
   '';
 };
