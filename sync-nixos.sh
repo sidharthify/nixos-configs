@@ -3,18 +3,15 @@ set -e
 
 cd /etc/nixos
 
-# pull latest changes (as your user)
-git pull origin main
-
-# rebuild with new config (needs root)
+# rebuild
 sudo nixos-rebuild switch
 
-# commit any local changes (as your user)
+# commit any local changes
 if [[ -n $(git status --porcelain) ]]; then
   git add .
-  git commit -m "local update: $(date '+%Y-%m-%d %H:%M:%S')"
+  git commit -m "local-update: $(date '+%Y-%m-%d %H:%M:%S')"
   git push origin main
-  echo "✅ /etc/nixos changes pushed."
+  echo "pushed your changes from /etc/nixos! :3"
 else
-  echo "🟢 no changes to commit."
+  echo "oopsies, no changes to commit :("
 fi
