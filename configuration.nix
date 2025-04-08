@@ -109,7 +109,6 @@
     neofetch
     git
     vesktop
-    discord
     telegram-desktop
     python3Full
     hyfetch
@@ -388,7 +387,6 @@ programs.nix-ld.enable = true;
 services.hardware.openrgb.enable = true;
 
 # zsh (with the 'setfanspeed' function)
-# zsh
 programs.zsh = {
   enable = true;
   enableCompletion = true;
@@ -421,3 +419,4 @@ programs.zsh = {
 };
 
 }
+Update configuration.nix
