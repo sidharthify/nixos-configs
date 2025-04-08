@@ -388,7 +388,7 @@ programs.zsh = {
   shellAliases = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch";  
-    edit-conf = "sudo nano /etc/nixos/configuration.nix";
+    edit = "sudo nano /etc/nixos/configuration.nix";
 };
 
   histSize = 10000;
