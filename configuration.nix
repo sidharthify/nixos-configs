@@ -368,14 +368,6 @@ networking.firewall.enable = false;
 # kde-connect
 programs.kdeconnect.enable = true;
 
-# playit.gg
-  services.playit = {
-    enable = true;
-    user = "playit";
-    group = "playit";
-    secretPath = "/home/sidharthify/.config/playit_gg/playit.toml";  # adjust this if needed
-  };
-
 # security.sudo
 security.sudo.enable = true;
 nix.settings.trusted-users = [ "root" "sidharthify" ];
