@@ -419,4 +419,3 @@ programs.zsh = {
 };
 
 }
-Update configuration.nix
