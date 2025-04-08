@@ -84,6 +84,7 @@
   users.users.sidharthify = {
     isNormalUser = true;
     description = "sidharthify";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "libvirtd"];
     packages = with pkgs; [
       kdePackages.kate
@@ -108,12 +109,12 @@
     neofetch
     git
     vesktop
+    discord
     telegram-desktop
     python3Full
     hyfetch
     libnotify
     font-awesome
-    swaynotificationcenter    
     stow
     nwg-look
     lutris-unwrapped
@@ -218,6 +219,13 @@
     git-lfs
     yt-dlp
     vinegar
+    rustdesk-flutter
+    apple-cursor
+    neovim
+    binwalk
+    tinyxxd
+    ghidra
+    nodejs_23
 ];
 
   # Enable the OpenSSH daemon.
@@ -318,20 +326,6 @@ services.dbus.enable = true;
 # Flakes
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-# zsh
-programs.zsh = {
-  enable = true;
-  enableCompletion = true;
-  autosuggestions.enable = true;
-  syntaxHighlighting.enable = true;
-
-  shellAliases = {
-    ll = "ls -l";
-    update = "sudo nixos-rebuild switch";
-  };
-  histSize = 10000;
-};
-
 # running discord with wayland
   environment.variables = {
     VESKTOP_USE_WAYLAND = "1";
@@ -389,5 +383,41 @@ nix.settings.trusted-users = [ "root" "sidharthify" ];
 
 # nix-ld 
 programs.nix-ld.enable = true;
+
+# openrgb
+services.hardware.openrgb.enable = true;
+
+# zsh (with the 'setfanspeed' function)
+# zsh
+programs.zsh = {
+  enable = true;
+  enableCompletion = true;
+  autosuggestions.enable = true;
+  syntaxHighlighting.enable = true;
+
+  shellAliases = {
+    ll = "ls -l";
+    update = "sudo nixos-rebuild switch";
+  };
+
+  histSize = 10000;
+
+  interactiveShellInit = ''
+    setfanspeed() {
+      if [[ -z $1 ]]; then
+        echo "❌ usage: setfanspeed <0-100>"
+        return 1
+      fi
+
+      if ! [[ $1 =~ ^[0-9]+$ ]] || (( $1 < 0 || $1 > 100 )); then
+        echo "❌ fan speed must be an integer between 0 and 100"
+        return 1
+      fi
+
+      echo "🌬️ setting GPU fan speed to $1%"
+      sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY nvidia-settings -a GPUFanControlState=1 -a GPUTargetFanSpeed=$1
+    }
+  '';
+};
 
 }
