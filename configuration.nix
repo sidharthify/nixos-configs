@@ -387,8 +387,8 @@ programs.zsh = {
 
   shellAliases = {
     ll = "ls -l";
-    update = "sudo nixos-rebuild switch";
-  };
+    update = "sudo /usr/bin/nixos-rebuild-sync switch";  
+};
 
   histSize = 10000;
 
