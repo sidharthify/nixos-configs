@@ -38,5 +38,3 @@ EOF
 else
   echo "oopsies, no changes to commit :("
 fi
-
-fi
