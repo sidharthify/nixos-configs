@@ -208,6 +208,7 @@
     tinyxxd
     ghidra
     nodejs_23
+    bfg-repo-cleaner
 ];
 
   # Enable the OpenSSH daemon.
