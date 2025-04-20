@@ -209,6 +209,7 @@
     ghidra
     nodejs_23
     bfg-repo-cleaner
+    clang-tools
 ];
 
   # Enable the OpenSSH daemon.
