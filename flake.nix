@@ -2,15 +2,18 @@
   description = "sidharth's flake.nix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # unstable
-    playit-nixos-module.url = "github:pedorich-n/playit-nixos-module"; # playit.gg
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, playit-nixos-module }: {
+  outputs = { self, nixpkgs, playit-nixos-module, spicetify-nix }: {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit spicetify-nix; };
       system = "x86_64-linux";
       modules = [
         playit-nixos-module.nixosModules.default
+        spicetify-nix.nixosModules.spicetify
         ./configuration.nix
       ];
     };

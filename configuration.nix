@@ -1,5 +1,8 @@
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, spicetify-nix, ... }:
+let
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+in
 
 {
   imports =
@@ -208,7 +211,6 @@
     nodejs_23
     bfg-repo-cleaner
     clang-tools
-    spotify
 ];
 
   # Enable the OpenSSH daemon.
@@ -376,5 +378,19 @@ programs.zsh = {
     }
   '';
 };
+
+# spicetify
+  programs.spicetify = {
+    enable = true;
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
+    
+    enabledExtensions = with spicePkgs.extensions; [
+      adblockify
+      hidePodcasts
+      shuffle
+      # Add other extensions you want
+    ];
+  };
 
 }
