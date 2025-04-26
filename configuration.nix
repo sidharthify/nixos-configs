@@ -180,9 +180,7 @@
     pacman
     xkeyboard_config
     glfw-wayland-minecraft
-    spicetify-cli
     zip
-    spotify-player
     jdk21
     floorp
     git-repo
@@ -210,6 +208,7 @@
     nodejs_23
     bfg-repo-cleaner
     clang-tools
+    spotify
 ];
 
   # Enable the OpenSSH daemon.
