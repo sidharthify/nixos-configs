@@ -389,7 +389,14 @@ programs.zsh = {
       adblockify
       hidePodcasts
       shuffle
-      # Add other extensions you want
+      bookmark
+      wikify
+      copyToClipboard
+      lastfm
+      fullScreen
+      copyLyrics
+      beautifulLyrics
+      starRatings
     ];
   };
 
