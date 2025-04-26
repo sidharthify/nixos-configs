@@ -398,6 +398,11 @@ programs.zsh = {
       beautifulLyrics
       starRatings
     ];
-  };
+    
+   enabledCustomApps = with spicePkgs.apps; [
+      marketplace
+];  
+
+};
 
 }
