@@ -211,6 +211,7 @@ in
     nodejs_23
     bfg-repo-cleaner
     clang-tools
+    noto-fonts-cjk-sans
 ];
 
   # Enable the OpenSSH daemon.
@@ -397,7 +398,7 @@ programs.zsh = {
       copyLyrics
       beautifulLyrics
       starRatings
-    ];
+];
     
    enabledCustomApps = with spicePkgs.apps; [
       marketplace
