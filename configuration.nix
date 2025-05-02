@@ -215,6 +215,13 @@ in
     noto-fonts-cjk-serif
 ];
 
+# fonts
+  fonts.fonts = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+  ];
+
+
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
 
