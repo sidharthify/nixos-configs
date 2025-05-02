@@ -212,6 +212,7 @@ in
     bfg-repo-cleaner
     clang-tools
     noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
 ];
 
   # Enable the OpenSSH daemon.
