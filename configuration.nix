@@ -87,7 +87,6 @@ in
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    alacritty
     vim 
     sudo
     sof-firmware
@@ -133,7 +132,6 @@ in
     hexyl
     gnome-themes-extra
     zenity
-    osu-lazer
     quota
     ani-cli
     drawpile
