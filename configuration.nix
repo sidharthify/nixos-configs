@@ -130,7 +130,6 @@ in
     protonvpn-gui
     lm_sensors
     hexyl
-    gnome-themes-extra
     zenity
     quota
     ani-cli
