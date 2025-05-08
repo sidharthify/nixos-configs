@@ -412,4 +412,12 @@ programs.zsh = {
 
 };
 
+# zerotier 
+services.zerotierone = {
+  enable = true;
+  joinNetworks = [
+  ];
+};
+
+
 }
