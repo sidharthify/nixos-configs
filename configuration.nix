@@ -217,7 +217,9 @@ in
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-  ];
+    qt5.full
+    qtcreator  
+];
 
 
   # Enable the OpenSSH daemon.
@@ -420,5 +422,6 @@ services.zerotierone = {
    ];
 };
 
-
+# chrony
+services.chrony.enable = true;
 }
