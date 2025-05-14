@@ -211,14 +211,13 @@ in
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     ghostty
+    direnv
 ];
 
 # fonts
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-    qt5.full
-    qtcreator  
 ];
 
 
