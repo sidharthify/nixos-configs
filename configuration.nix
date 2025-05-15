@@ -212,6 +212,7 @@ in
     noto-fonts-cjk-serif
     ghostty
     direnv
+    rustc
 ];
 
 # fonts
