@@ -213,6 +213,7 @@ in
     ghostty
     direnv
     rustc
+    brightnessctl
 ];
 
 # fonts
