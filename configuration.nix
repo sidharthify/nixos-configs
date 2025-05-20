@@ -215,6 +215,7 @@ in
     rustc
     brightnessctl
     python312Packages.pip
+    interception-tools
 ];
 
 # fonts
