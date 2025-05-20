@@ -214,6 +214,7 @@ in
     direnv
     rustc
     brightnessctl
+    python312Packages.pip
 ];
 
 # fonts
