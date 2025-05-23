@@ -163,7 +163,6 @@ in
     tmate-ssh-server
     tmate
     pipx
-    brave
     blueman
     p7zip
     pavucontrol
