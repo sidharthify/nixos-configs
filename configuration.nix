@@ -215,6 +215,7 @@ in
     brightnessctl
     python312Packages.pip
     interception-tools
+    brave
 ];
 
 # fonts
