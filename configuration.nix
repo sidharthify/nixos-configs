@@ -20,7 +20,7 @@ in
   networking.interfaces.wlp3s0.useDHCP = false;
   networking.resolvconf.enable = false;
   networking.nameservers = [ "192.168.1.1" ];
-  networking.interfaces."wlp3s0".mtu = 1458;
+  networking.interfaces."wlp3s0".mtu = 1500;
   networking.firewall.allowedTCPPorts = [ 25565 ];
 
   # Set your time zone.
