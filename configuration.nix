@@ -428,4 +428,11 @@ services.zerotierone = {
 
 # chrony
 services.chrony.enable = true;
+
+# sunshine
+services.sunshine = {
+  enable = true;
+  openFirewall = true;
+};
+
 }
