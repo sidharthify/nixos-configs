@@ -218,6 +218,8 @@ in
     kew
     gnome-disk-utility
     ventoy
+    exfat
+    exfatprogs
 ];
 
 # fonts
