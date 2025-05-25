@@ -220,6 +220,8 @@ in
     ventoy
     exfat
     exfatprogs
+    woeusb
+    woeusb-ng
 ];
 
 # fonts
