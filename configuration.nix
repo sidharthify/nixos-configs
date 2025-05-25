@@ -217,6 +217,7 @@ in
     interception-tools
     kew
     gnome-disk-utility
+    ventoy
 ];
 
 # fonts
