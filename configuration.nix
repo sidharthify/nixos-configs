@@ -216,6 +216,7 @@ in
     python312Packages.pip
     interception-tools
     kew
+    gnome-disk-utility
 ];
 
 # fonts
