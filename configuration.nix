@@ -222,6 +222,7 @@ in
     exfatprogs
     woeusb
     woeusb-ng
+    ntfs3g
 ];
 
 # fonts
