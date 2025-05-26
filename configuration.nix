@@ -444,4 +444,7 @@ capSysAdmin = true;
 openFirewall = true;
 };
 
+# virtualbox
+virtualisation.virtualbox.host.enable = true;
+users.extraGroups.vboxusers.members = [ "sidharthify" ];
 }
