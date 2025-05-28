@@ -72,7 +72,7 @@ in
     isNormalUser = true;
     description = "sidharthify";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd"];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout"];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
