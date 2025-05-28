@@ -218,6 +218,7 @@ in
     arduino-ide
     busybox
     arduino-cli
+    platformio
 ];
 
 # fonts
