@@ -216,6 +216,7 @@ in
     interception-tools
     kew
     arduino-ide
+    busybox
 ];
 
 # fonts
