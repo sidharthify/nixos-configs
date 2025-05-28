@@ -212,17 +212,9 @@ in
     ghostty
     direnv
     rustc
-    brightnessctl
     python312Packages.pip
     interception-tools
     kew
-    gnome-disk-utility
-    ventoy
-    exfat
-    exfatprogs
-    woeusb
-    woeusb-ng
-    ntfs3g
 ];
 
 # fonts
