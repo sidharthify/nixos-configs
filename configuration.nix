@@ -217,6 +217,7 @@ in
     kew
     arduino-ide
     busybox
+    arduino-cli
 ];
 
 # fonts
