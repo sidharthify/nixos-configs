@@ -14,6 +14,9 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
+  # Kernel Parameters
+  boot.kernelParams = [ "nvidia-modeset.hdmi_deepcolor=0" ];
+
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -227,7 +230,6 @@ in
     noto-fonts-cjk-serif
 ];
 
-
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
 
@@ -258,10 +260,10 @@ hardware.graphics = {
     open = false;
     nvidiaSettings = true;
     package = pkgs.linuxPackages.nvidia_x11.overrideAttrs (oldAttrs: {
-   version = "550.144.03";
+   version = "575.51.02";
    src = pkgs.fetchurl {
-    url = "https://in.download.nvidia.com/XFree86/Linux-x86_64/550.144.03/NVIDIA-Linux-x86_64-550.144.03.run";
-    sha256 = "6a4838e2cdb26e4c0e07367ac0d3bcf799d56b5286f68fa201be3d3ddb88aac4";
+    url = "https://in.download.nvidia.com/XFree86/Linux-x86_64/575.51.02/NVIDIA-Linux-x86_64-575.51.02.run";
+    sha256 = "5d9d0df084a6a000bca76f03ac61e4fd8375ac9b089c9d9d64d2fc3be4ee69ad";
    };
 });  
 };
