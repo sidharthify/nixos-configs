@@ -259,13 +259,7 @@ hardware.graphics = {
     powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
-    package = pkgs.linuxPackages.nvidia_x11.overrideAttrs (oldAttrs: {
-   version = "575.51.02";
-   src = pkgs.fetchurl {
-    url = "https://in.download.nvidia.com/XFree86/Linux-x86_64/575.51.02/NVIDIA-Linux-x86_64-575.51.02.run";
-    sha256 = "5d9d0df084a6a000bca76f03ac61e4fd8375ac9b089c9d9d64d2fc3be4ee69ad";
-   };
-});  
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 };
 
 # Load snd_hda_intel
