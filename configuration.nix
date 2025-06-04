@@ -15,7 +15,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   
   # Kernel Parameters
-  boot.kernelParams = [ "nvidia-modeset.hdmi_deepcolor=0" ];
+  boot.kernelParams = [ "nvidia-modeset.hdmi_deepcolor=0" "NVreg_EnableGpuFirmware=0" ];
 
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
