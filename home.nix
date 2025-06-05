@@ -14,7 +14,6 @@ plugins = {
   accountPanelServerProfile.enable = true;
   alwaysAnimate.enable = true;
   alwaysExpandRoles.enable = true;
-  betterFolders.enable = true;
   betterGifPicker.enable = true;
   betterRoleContext.enable = true;
   betterRoleDot.enable = true;
