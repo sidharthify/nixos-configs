@@ -1,8 +1,5 @@
 
-{ config, pkgs, lib, spicetify-nix, ... }:
-let
-  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
-in
+{ config, pkgs, lib, ... }:
 
 {
   imports =
@@ -387,32 +384,6 @@ programs.zsh = {
       sudo /usr/bin/nixos-rebuild-sync "$@"
     }
   '';
-};
-
-# spicetify
-  programs.spicetify = {
-    enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-    
-    enabledExtensions = with spicePkgs.extensions; [
-      adblockify
-      hidePodcasts
-      shuffle
-      bookmark
-      wikify
-      copyToClipboard
-      lastfm
-      fullScreen
-      copyLyrics
-      beautifulLyrics
-      starRatings
-];
-    
-   enabledCustomApps = with spicePkgs.apps; [
-      marketplace
-];  
-
 };
 
 # zerotier 

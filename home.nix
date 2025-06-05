@@ -1,7 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, spicetify-nix, ... }:
 
 {
+
+  imports = [
+    spicetify-nix.homeManagerModules.spicetify
+  ];
+
   home.stateVersion = "25.05";
+
+# Vencord (Nixcord)
   programs.nixcord = {
     enable = true;
     config = {
@@ -90,4 +97,17 @@ plugins = {
 };
   };
 };
+
+  # Spicetify config
+  programs.spicetify = {
+    enable = true;
+    theme = spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
+    colorScheme = "mocha";
+    enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
+      fullAppDisplay
+      shuffle
+      adblockify
+      bookmark
+    ];
+  };
 }
