@@ -222,7 +222,6 @@ in
     busybox
     arduino-cli
     platformio
-    discord
 ];
 
 # fonts
