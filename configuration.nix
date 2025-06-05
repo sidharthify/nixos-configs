@@ -223,6 +223,7 @@ in
     arduino-cli
     platformio
     cdemu-client
+    cdemu-daemon
 ];
 
 # fonts
