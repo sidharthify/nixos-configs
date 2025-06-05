@@ -222,6 +222,7 @@ in
     busybox
     arduino-cli
     platformio
+    cdemu-client
 ];
 
 # fonts
