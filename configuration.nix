@@ -96,7 +96,6 @@ in
     wget
     neofetch
     git
-    vesktop
     telegram-desktop
     python3Full
     hyfetch

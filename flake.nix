@@ -3,12 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager";
     playit-nixos-module.url = "github:pedorich-n/playit-nixos-module";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
+    nixcord.url = "github:KaylorBen/nixcord";
   };
 
-  outputs = { self, nixpkgs, playit-nixos-module, spicetify-nix, zen-browser-source }: {
+  outputs = { self, nixpkgs, playit-nixos-module, spicetify-nix, zen-browser-source, home-manager, nixcord, ... }: {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit spicetify-nix;
@@ -18,26 +20,21 @@
         playit-nixos-module.nixosModules.default
         spicetify-nix.nixosModules.spicetify
         ./configuration.nix
-
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.sidharthify = import ./home.nix;
+          home-manager.sharedModules = [
+            nixcord.homeModules.nixcord
+          ];
+        }
         ({ pkgs, ... }: {
           environment.systemPackages = with pkgs; [
             zen-browser-source.packages.x86_64-linux.default
           ];
         })
       ];
-    };
-
-    devShells.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
-      buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [
-        git gnupg gnutar gzip jq lzop python3 perl unzip wget xz zip zstd
-        bc bison flex gawk gcc gnumake ccache lz4 ncurses ninja openssl
-        pkg-config python3Packages.pycryptodome rsync screen socat udev
-        android-tools which libxml2 libxslt file openjdk17
-      ];
-
-      shellHook = ''
-        echo "Android build environment loaded!"
-      '';
     };
   };
 }
