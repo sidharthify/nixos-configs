@@ -8,7 +8,7 @@
 
   home.stateVersion = "25.05";
 
-# Vencord (Nixcord)
+  # Vencord (Nixcord)
   programs.nixcord = {
     enable = true;
     config = {
@@ -98,7 +98,7 @@ plugins = {
   };
 };
 
-  # Spicetify config
+  # Spicetify (spicetify-nix)
   programs.spicetify = {
     enable = true;
     theme = spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
@@ -106,8 +106,16 @@ plugins = {
     enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
       fullAppDisplay
       shuffle
-      adblockify
+      adblock
       bookmark
+      songStats
+      history
+      lastfm
+      copyLyrics
+      volumePercentage
+      beautifulLyrics
+      betterGenres
+      copyToClipboard
     ];
   };
 }
