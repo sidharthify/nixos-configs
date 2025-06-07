@@ -204,7 +204,6 @@
     binwalk
     tinyxxd
     ghidra
-    nodejs_23
     bfg-repo-cleaner
     clang-tools
     noto-fonts-cjk-sans
@@ -389,9 +388,5 @@
   "8850338390eb9eaa"
     ];
   };
-
-  # virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "sidharthify" ];
 
 }
