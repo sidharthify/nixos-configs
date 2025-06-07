@@ -221,7 +221,7 @@
     platformio
 ];
 
-# fonts
+  # Fonts
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
@@ -230,10 +230,10 @@
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.11";
 
-# Enable OpenGL
-hardware.graphics = {
+  # Enable OpenGL
+  hardware.graphics = {
   enable = true;
   extraPackages = with pkgs; [
     vulkan-loader
@@ -249,7 +249,7 @@ hardware.graphics = {
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-# NVIDIA Drivers
+  # NVIDIA Drivers
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -259,99 +259,93 @@ hardware.graphics = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 };
 
-# Load snd_hda_intel
-boot.kernelModules = [ "snd_hda_intel" ];
+  # Load snd_hda_intel
+  boot.kernelModules = [ "snd_hda_intel" ];
 
-# Load snd-hda-codec-realtek
-boot.extraModprobeConfig = ''
- options snd-hda-intel model=snd-hda-codec-realtek
-'';
+  # Load snd-hda-codec-realtek
+  boot.extraModprobeConfig = ''
+  options snd-hda-intel model=snd-hda-codec-realtek
+  '';
 
-# Enable Bluetooth
-hardware.bluetooth.enable = true;
-hardware.bluetooth.powerOnBoot = true;
-hardware.bluetooth.settings = {
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.settings = {
   General = { Experimental = true; };
 };
 
-# Adding user to audio group
-users.extraUsers.sidharthify = {
+  # Adding user to audio group
+  users.extraUsers.sidharthify = {
 
   extraGroups = [ "audio" ];
 };
 
-# Steam
-programs.steam = {
+  # Steam
+  programs.steam = {
   enable = true;
   remotePlay.openFirewall = true;
   dedicatedServer.openFirewall = true;
   localNetworkGameTransfers.openFirewall = true;
 };
 
-# XDG portal
-xdg.portal.enable = true;
-xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-xdg.portal.xdgOpenUsePortal = true;
-services.dbus.enable = true;
+  # XDG portal
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.xdgOpenUsePortal = true;
+  services.dbus.enable = true;
 
-# Flakes
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-# running discord with wayland
-  environment.variables = {
-    VESKTOP_USE_WAYLAND = "1";
-    NATIVE_WAYLAND = "1";
-  };
+  # gamemode
+  programs.gamemode.enable = true;
 
-# gamemode
-programs.gamemode.enable = true;
+  # qemu/kvm
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
-# qemu/kvm
-virtualisation.libvirtd.enable = true;
-programs.virt-manager.enable = true;
+  # flatpaks
+  services.flatpak.enable = true;
 
-# flatpaks
-services.flatpak.enable = true;
+  # coolercontrol
+  programs.coolercontrol.enable = true;
+  programs.coolercontrol.nvidiaSupport = true;
 
-# coolercontrol
-programs.coolercontrol.enable = true;
-programs.coolercontrol.nvidiaSupport = true;
+  # waydroid
+  virtualisation.waydroid.enable = true;
 
-# waydroid
-virtualisation.waydroid.enable = true;
+  # kde partition manager
+  programs.partition-manager.enable = true;
 
-# kde partition manager
-programs.partition-manager.enable = true;
+  # tmate
+  services.tmate-ssh-server.enable = true;
 
-# tmate
-services.tmate-ssh-server.enable = true;
+  # docker
+  virtualisation.docker.enable = true;
 
-# docker
-virtualisation.docker.enable = true;
+  # zram
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 100;
+  zramSwap.priority = 100;
 
-# zram
-zramSwap.enable = true;
-zramSwap.memoryPercent = 100;
-zramSwap.priority = 100;
+  # firewall
+  networking.firewall.enable = false;
 
-# firewall
-networking.firewall.enable = false;
+  # kde-connect
+  programs.kdeconnect.enable = true;
 
-# kde-connect
-programs.kdeconnect.enable = true;
+  # security.sudo
+  security.sudo.enable = true;
+  nix.settings.trusted-users = [ "root" "sidharthify" ];
 
-# security.sudo
-security.sudo.enable = true;
-nix.settings.trusted-users = [ "root" "sidharthify" ];
+  # nix-ld
+  programs.nix-ld.enable = true;
 
-# nix-ld 
-programs.nix-ld.enable = true;
+  # openrgb
+  services.hardware.openrgb.enable = true;
 
-# openrgb
-services.hardware.openrgb.enable = true;
-
-# zsh (with the 'setfanspeed' function)
-programs.zsh = {
+  # zsh (with the 'setfanspeed' function)
+  programs.zsh = {
   enable = true;
   enableCompletion = true;
   autosuggestions.enable = true;
@@ -361,7 +355,7 @@ programs.zsh = {
     ll = "ls -l";
     update = "sudo nixos-rebuild switch";  
     edit = "sudo nano /etc/nixos/configuration.nix";
-};
+  };
 
   histSize = 10000;
 
@@ -373,11 +367,11 @@ programs.zsh = {
       fi
 
       if ! [[ $1 =~ ^[0-9]+$ ]] || (( $1 < 0 || $1 > 100 )); then
-        echo "❌ fan speed must be an integer between 0 and 100"
+        echo "fan speed must be an integer between 0 and 100"
         return 1
       fi
 
-      echo "🌬️ setting GPU fan speed to $1%"
+      echo "setting GPU fan speed to $1%"
       sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY nvidia-settings -a GPUFanControlState=1 -a GPUTargetFanSpeed=$1
     }
     
@@ -385,29 +379,19 @@ programs.zsh = {
       sudo /usr/bin/nixos-rebuild-sync "$@"
     }
   '';
-};
+  };
 
-# zerotier 
-services.zerotierone = {
+  # zerotier
+  services.zerotierone = {
   enable = true;
   joinNetworks = [
   "8850338390d46d0b"
   "8850338390eb9eaa"
-   ];
-};
+    ];
+  };
 
-# chrony
-services.chrony.enable = true;
+  # virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "sidharthify" ];
 
-# sunshine
-services.sunshine = {
-enable = true;
-autoStart = true;
-capSysAdmin = true;
-openFirewall = true;
-};
-
-# virtualbox
-virtualisation.virtualbox.host.enable = true;
-users.extraGroups.vboxusers.members = [ "sidharthify" ];
 }
