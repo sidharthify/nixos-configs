@@ -351,8 +351,11 @@
 
   shellAliases = {
     ll = "ls -l";
-    update = "sudo nixos-rebuild switch";  
-    edit = "sudo nano /etc/nixos/configuration.nix";
+    update = "syncnix switch";  
+    edit = "sudo nvim /etc/nixos/configuration.nix";
+    edit-flake = "sudo nvim /etc/nixos/flake.nix";
+    edit-home = "sudo nvim /etc/nixos/home.nix";
+    mic-loopback = "pw-loopback --capture-props=node.name=MicLoopback --playback-props=node.target=52";  
   };
 
   histSize = 10000;
@@ -360,7 +363,7 @@
   interactiveShellInit = ''
     setfanspeed() {
       if [[ -z $1 ]]; then
-        echo "❌ usage: setfanspeed <0-100>"
+        echo "usage: setfanspeed <0-100>"
         return 1
       fi
 
