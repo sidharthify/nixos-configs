@@ -81,7 +81,7 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = false;
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -181,7 +181,6 @@
     glfw-wayland-minecraft
     zip
     jdk21
-    floorp
     git-repo
     gnumake
     coreutils
