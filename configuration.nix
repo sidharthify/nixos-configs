@@ -318,9 +318,6 @@
   # tmate
   services.tmate-ssh-server.enable = true;
 
-  # docker
-  virtualisation.docker.enable = true;
-
   # zram
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
