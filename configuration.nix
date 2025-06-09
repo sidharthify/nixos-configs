@@ -217,6 +217,7 @@
     busybox
     arduino-cli
     platformio
+    element-desktop
 ];
 
   # Fonts
