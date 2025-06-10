@@ -218,6 +218,7 @@
     arduino-cli
     platformio
     element-desktop
+    cinny-desktop
 ];
 
   # Fonts

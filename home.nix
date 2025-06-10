@@ -6,7 +6,7 @@
     spicetify-nix.homeManagerModules.spicetify
   ];
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   # Vencord (Nixcord)
   programs.nixcord = {
@@ -69,7 +69,6 @@ plugins = {
   reverseImageSearch.enable = true;
   relationshipNotifier.enable = true;
   quickReply.enable = true;
-  pronounDB.enable = true;
   platformIndicators.enable = true;
   noBlockedMessages.enable = true;
   moreUserTags.enable = true;
@@ -118,4 +117,5 @@ plugins = {
       copyToClipboard
     ];
   };
+
 }
