@@ -376,7 +376,7 @@
     edit-flake = "sudo nvim /etc/nixos/flake.nix";
     edit-home = "sudo nvim /etc/nixos/home.nix";
     mic-loopback = "pw-loopback --capture-props=node.name=MicLoopback --playback-props=node.target=52";  
-  };
+};
 
   histSize = 10000;
 
@@ -409,6 +409,13 @@
   "8850338390d46d0b"
   "8850338390eb9eaa"
     ];
+  };
+
+  # tailscale 
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "both";
+    extraUpFlags = [ "--ssh" ];
   };
 
 }
