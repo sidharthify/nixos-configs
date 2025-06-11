@@ -418,4 +418,18 @@
     extraUpFlags = [ "--ssh" ];
   };
 
+  # Navidrome Tailscale Funnel
+  systemd.services.tailscale-funnel-navidrome = {
+    description = "Expose Navidrome via Tailscale Funnel";
+    after = [ "tailscaled.service" "docker.service" ];
+    wants = [ "tailscaled.service" "docker.service" ];
+    serviceConfig = {
+    Type = "simple";
+    ExecStart = ''/run/wrappers/bin/tailscale funnel 4533'';
+    Restart = "on-failure";
+    User = "root";
+  };
+  wantedBy = [ "multi-user.target" ];
+};
+
 }
