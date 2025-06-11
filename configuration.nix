@@ -73,7 +73,7 @@
     isNormalUser = true;
     description = "sidharthify";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout"];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" "docker"];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -321,8 +321,27 @@
 
   # docker
   virtualisation.docker.enable = true;
+ 
+  # declarative navidrome container
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers.navidrome = {
+      image = "deluan/navidrome:latest";
+      ports = [ "4533:4533" ];
+      volumes = [
+        "/mnt/sda1/music:/music:ro"
+        "/mnt/sda1/navidrome:/data"
+      ];
+      environment = {
+        ND_LOGLEVEL = "info";
+        ND_SCANINTERVAL = "1h";
+        ND_MUSICFOLDER = "/music";
+      };
+      user = "1000:1000";
+    };
+  };
 
-  # zram
+ # zram
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
   zramSwap.priority = 100;
