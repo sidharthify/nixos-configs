@@ -425,7 +425,7 @@
     wants = [ "tailscaled.service" "docker.service" ];
     serviceConfig = {
     Type = "simple";
-    ExecStart = ''/run/wrappers/bin/tailscale funnel 4533'';
+    ExecStart = ''/run/current-system/sw/bin/tailscale funnel 4533'';
     Restart = "on-failure";
     User = "root";
   };
