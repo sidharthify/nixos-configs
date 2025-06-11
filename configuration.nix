@@ -227,7 +227,11 @@
 ];
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  services.openssh = {
+  enable = true;
+  permitRootLogin = "no";
+  passwordAuthentication = true;
+};
 
   system.stateVersion = "24.11";
 
