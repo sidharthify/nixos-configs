@@ -327,6 +327,7 @@
     backend = "docker";
     containers.navidrome = {
       image = "deluan/navidrome:latest";
+      user = "1000:1000";
       ports = [ "4533:4533" ];
       volumes = [
         "/mnt/sda1/music:/music:ro"
@@ -337,7 +338,6 @@
         ND_SCANINTERVAL = "1h";
         ND_MUSICFOLDER = "/music";
       };
-      user = "1000:1000";
     };
   };
 
