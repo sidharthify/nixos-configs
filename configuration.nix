@@ -448,14 +448,17 @@
   };
 
   # Navidrome Tailscale Funnel
-  systemd.services.tailscale-funnel-navidrome = {
-    description = "Expose Navidrome via Tailscale Funnel";
-    after = [ "tailscaled.service" "docker.service" ];
-    wants = [ "tailscaled.service" "docker.service" ];
-    serviceConfig = {
-    Type = "simple";
-    ExecStart = ''/run/current-system/sw/bin/tailscale funnel 4533'';
-    Restart = "on-failure";
+  systemd.services.tailscale-setup-serve = {
+  description = "Setup Tailscale Serve for services";
+  after = [ "tailscaled.service" "docker.service" ];
+  wants = [ "tailscaled.service" "docker.service" ];
+  serviceConfig = {
+    Type = "oneshot";
+    RemainAfterExit = true;
+    ExecStart = pkgs.writeShellScript "setup-tailscale-serve" ''
+      ${pkgs.tailscale}/bin/tailscale serve --bg --set-path /navidrome http://localhost:4533
+      ${pkgs.tailscale}/bin/tailscale serve --bg --set-path /nicotine http://localhost:6080
+    '';
     User = "root";
   };
   wantedBy = [ "multi-user.target" ];
