@@ -17,7 +17,7 @@
 
   # Networking
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = false;
+  networking.networkmanager.enable = true;
   networking.interfaces.wlp3s0.useDHCP = false;
   networking.interfaces."wlp3s0".ipv4.addresses = [{
   address = "192.168.1.184";
