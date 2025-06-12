@@ -440,30 +440,6 @@
     ];
   };
 
-  # tailscale 
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "both";
-    extraUpFlags = [ "--ssh" ];
-  };
-
-  # Navidrome Tailscale Funnel
-  systemd.services.tailscale-setup-serve = {
-  description = "Setup Tailscale Serve for services";
-  after = [ "tailscaled.service" "docker.service" ];
-  wants = [ "tailscaled.service" "docker.service" ];
-  serviceConfig = {
-    Type = "oneshot";
-    RemainAfterExit = true;
-    ExecStart = pkgs.writeShellScript "setup-tailscale-serve" ''
-      ${pkgs.tailscale}/bin/tailscale serve --bg --set-path /navidrome http://localhost:4533
-      ${pkgs.tailscale}/bin/tailscale serve --bg --set-path /nicotine http://localhost:6080
-    '';
-    User = "root";
-  };
-  wantedBy = [ "multi-user.target" ];
-};
-
   # SATA
   fileSystems."/mnt/sda1" = {
   device = "/dev/sda1";
