@@ -436,7 +436,12 @@
   wantedBy = [ "multi-user.target" ];
 };
 
-  # teamviewer
-  services.teamviewer.enable = true;
+  # SATA
+  fileSystems."/mnt/sda1" = {
+  device = "/dev/sda1";
+  fsType = "btrfs";
+  options = [ "defaults" ];
+};
+
 
 }
