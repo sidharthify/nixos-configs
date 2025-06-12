@@ -28,6 +28,7 @@
   networking.nameservers = [ "192.168.1.1" ];
   networking.interfaces."wlp3s0".mtu = 1500;
   networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.enableIPv6 = false;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
