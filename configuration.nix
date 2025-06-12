@@ -436,4 +436,7 @@
   wantedBy = [ "multi-user.target" ];
 };
 
+  # teamviewer
+  services.teamviewer.enable = true;
+
 }
