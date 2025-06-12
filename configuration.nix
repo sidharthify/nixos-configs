@@ -445,7 +445,11 @@
   device = "/dev/sda1";
   fsType = "btrfs";
   options = [ "defaults" ];
-};
+  };
 
+  # Cloudflared
+  services.cloudflared = {
+    enable = true;
+  };
 
 }
