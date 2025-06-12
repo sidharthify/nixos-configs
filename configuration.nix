@@ -375,7 +375,68 @@
     };
   };
 };
- 
+
+  # plex server
+  virtualisation.oci-containers = {
+    containers = {
+      sonarr = {
+        image = "linuxserver/sonarr:latest";
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "Asia/Kolkata";
+        };
+        volumes = [
+          "/mnt/sda1/sonarr/config:/config"
+          "/mnt/sda1/plex/media:/media"
+          # "/mnt/sda1/downloads:/downloads"
+        ];
+        extraOptions = [ "--network=host" ];
+      };
+
+      radarr = {
+        image = "linuxserver/radarr:latest";
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "Asia/Kolkata";
+        };
+        volumes = [
+          "/mnt/sda1/radarr/config:/config"
+          "/mnt/sda1/plex/media:/media"
+          # "/mnt/sda1/downloads:/downloads"
+        ];
+        extraOptions = [ "--network=host" ];
+      };
+
+      prowlarr = {
+        image = "linuxserver/prowlarr:latest";
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          TZ = "Asia/Kolkata";
+        };
+        volumes = [
+          "/mnt/sda1/prowlarr/config:/config"
+        ];
+        extraOptions = [ "--network=host" ];
+      };
+
+      plex = {
+        image = "plexinc/pms-docker:latest";
+        environment = {
+          TZ = "Asia/Kolkata";
+          PLEX_CLAIM = "claim-jcxynZtWeZJamYzU8kFy";
+          ADVERTISE_IP = "http://192.168.1.184:32400/";
+        };
+        volumes = [
+          "/mnt/sda1/plex/config:/config"
+          "/mnt/sda1/plex/media:/data"
+        ];
+        extraOptions = [ "--network=host" ];
+      };
+    };
+  };
   # zram
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
