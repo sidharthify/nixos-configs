@@ -449,7 +449,7 @@
 
   # Cloudflared
   services.cloudflared = {
-    enable = true;
+  enable = true;
   };
 
 }
