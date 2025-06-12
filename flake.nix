@@ -18,7 +18,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.sidharthify = import ./home.nix;
+          home-manager.users.sidharthify = import ./home-manager/home.nix;
           home-manager.sharedModules = [
             nixcord.homeModules.nixcord
           ];
