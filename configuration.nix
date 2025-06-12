@@ -405,7 +405,7 @@
         volumes = [
           "/mnt/sda1/radarr/config:/config"
           "/mnt/sda1/plex/media:/media"
-          # "/mnt/sda1/downloads:/downloads"
+          "/mnt/sda1/downloads:/downloads"
         ];
         extraOptions = [ "--network=host" ];
       };
