@@ -332,7 +332,7 @@
     containers.navidrome = {
       image = "deluan/navidrome:latest";
       user = "1000:1000";
-      ports = [ "4533:4533" ];
+      ports = [ "127.0.0.1:4533:4533" ];
       volumes = [
         "/mnt/sda1/music:/music:ro"
         "/mnt/sda1/navidrome:/data"
@@ -363,7 +363,7 @@
         "/mnt/sda1/music:/data/incomplete_downloads"
       ];
       ports = [
-        "6080:6080"
+        "127.0.0.1:6080:6080"
         "2234-2239:2234-2239"
       ];
     };
