@@ -345,7 +345,32 @@
     };
   };
 
- # zram
+  # declarative nicotineplus container 
+  virtualisation.oci-containers = {
+  containers = {
+    nicotine-plus = {
+      image = "ghcr.io/fletchto99/nicotine-plus-docker:latest";
+      extraOptions = [ "--security-opt" "seccomp=unconfined" ]; # optional
+      environment = {
+        PUID = "1000";
+        PGID = "1000";
+        TZ = "Asia/Kolkata";
+        PASSWORD = ""; # optional
+      };
+      volumes = [
+        "/mnt/sda1/nicotineplus:/config"
+        "/mnt/sda1/music:/data/downloads"
+        "/mnt/sda1/music:/data/incomplete_downloads"
+      ];
+      ports = [
+        "6080:6080"
+        "2234-2239:2234-2239"
+      ];
+    };
+  };
+};
+ 
+  # zram
   zramSwap.enable = true;
   zramSwap.memoryPercent = 100;
   zramSwap.priority = 100;
