@@ -346,7 +346,7 @@
     };
   };
 
-  # declarative nicotineplus container 
+  # declarative nicotineplus container
   virtualisation.oci-containers = {
   containers = {
     nicotine-plus = {
@@ -356,7 +356,7 @@
         PUID = "1000";
         PGID = "1000";
         TZ = "Asia/Kolkata";
-        PASSWORD = ""; # optional
+        PASSWORD = "sidpid098";
       };
       volumes = [
         "/mnt/sda1/nicotineplus:/config"
@@ -448,7 +448,6 @@
   options = [ "defaults" ];
   };
 
-  # Cloudflared
 # Cloudflared
 services.cloudflared = {
   enable = true;
