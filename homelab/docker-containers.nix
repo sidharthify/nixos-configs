@@ -100,8 +100,8 @@
           WEBUI_PORTS = "8080/tcp,8080/udp";
         };
         volumes = [
-          "/mnt/sda1/qbittorrent/config:/config"
-          "/mnt/sda1/downloads:/app/qBittorrent/downloads"
+	  "/mnt/sda1/qbittorrent/config:/config"
+          "/mnt/sda1/downloads:/downloads"
         ]; 
         ports = [
              "8080:8080"
