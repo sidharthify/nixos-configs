@@ -120,7 +120,7 @@
         };
         volumes = [
           "/mnt/sda1/plex/config:/config"
-          "/mnt/sda1/plex/media:/media:ro"
+          "/mnt/sda1/media:/media:ro"
         ];
         extraOptions = [ "--network=host" ];
       };
