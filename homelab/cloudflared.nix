@@ -6,7 +6,7 @@
 
 services.cloudflared = {
   enable = true;
-  
+
   tunnels.multi = {
     credentialsFile = "/var/lib/cloudflared/multi.json";
     default = "http_status:404";
