@@ -102,9 +102,13 @@
         volumes = [
           "/mnt/sda1/qbittorrent/config:/config"
           "/mnt/sda1/downloads:/app/qBittorrent/downloads"
-        ];
-        ports = [ "127.0.0.1:8080:8080" ];
-      };
+        ]; 
+        ports = [
+             "8080:8080"
+             "6881:6881"
+             "6881:6881/udp"
+             ];      
+           };
 
       # Plex
       plex = {
