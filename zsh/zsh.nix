@@ -38,10 +38,22 @@
       echo "setting GPU fan speed to $1%"
       sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY nvidia-settings -a GPUFanControlState=1 -a GPUTargetFanSpeed=$1
     }
-    
-    syncnix() {
-      sudo /usr/bin/nixos-rebuild-sync "$@"
-    }
+  
+  syncnix() {
+  local cmd="${1:-switch}"
+  sudo nixos-rebuild "$cmd" --impure
+
+  cd /etc/nixos
+  if [[ -n $(git status --porcelain) ]]; then
+    git add .
+    git commit -m "local-update: $(date '+%Y-%m-%d %H:%M:%S')"
+    git push origin main
+    echo "pushed!"
+  else
+    echo "oopsies, no changes to commit :("
+  fi
+}
+
   '';
   };
 
