@@ -30,7 +30,7 @@
           PUID = "1000";
           PGID = "1000";
           TZ = "Asia/Kolkata";
-          PASSWORD = "sidpid098";
+          PASSWORD = builtins.readFile "/etc/nixos-secrets/secrets/nicotine_password";
         };
         volumes = [
           "/mnt/sda1/nicotineplus:/config"

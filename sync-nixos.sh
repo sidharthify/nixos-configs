@@ -4,7 +4,7 @@ set -e
 cd /etc/nixos
 
 # rebuild
-sudo nixos-rebuild switch
+sudo nixos-rebuild switch --impure
 
 # commit any local changes
 if [[ -n $(git status --porcelain) ]]; then
