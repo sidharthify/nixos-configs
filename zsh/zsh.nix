@@ -39,24 +39,10 @@ interactiveShellInit = ''
     sudo DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY nvidia-settings -a GPUFanControlState=1 -a GPUTargetFanSpeed=$1
   }
 
-  syncnix() {
-    local cmd="${1:-switch}"
-    if ! sudo nixos-rebuild "$cmd" --impure; then
-      echo "nixos-rebuild failed, not pushing anything."
-      return 1
-    fi
-
-    cd /etc/nixos || return 1
-
-    if [[ -n $(git status --porcelain) ]]; then
-      sudo git add .
-      sudo git commit -m "local-update: $(date '+%Y-%m-%d %H:%M:%S')"
-      sudo git push origin main
-      echo "pushed!"
-    else
-      echo "oopsies, no changes to commit :("
-    fi
-  }
+ # syncnix
+ syncnix() {
+ /etc/nixos/sync-nixos.sh "$@"
+ }
 '';
   };
 
