@@ -53,8 +53,8 @@
         };
         volumes = [
           "/mnt/sda1/sonarr/config:/config"
-          "/mnt/sda1/plex/media:/media"
-          # "/mnt/sda1/downloads:/downloads"
+          "/mnt/sda1/media:/media"
+          "/mnt/sda1/data/torrents/downloads"
         ];
         extraOptions = [ "--network=host" ];
       };
