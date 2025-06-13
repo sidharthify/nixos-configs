@@ -89,6 +89,23 @@
         extraOptions = [ "--network=host" ];
       };
 
+      # qBittorrent (Docker)
+      qbittorrent-docker = {
+        image = "ghcr.io/hotio/qbittorrent:latest";
+        environment = {
+          PUID = "1000";
+          PGID = "1000";
+          UMASK = "002";
+          TZ = "Asia/Kolkata";
+          WEBUI_PORTS = "8080/tcp,8080/udp";
+        };
+        volumes = [
+          "/mnt/sda1/qbittorrent/config:/config"
+          "/mnt/sda1/downloads:/data"
+        ];
+        ports = [ "127.0.0.1:8080:8080" ];
+      };
+
       # Plex
       plex = {
         image = "plexinc/pms-docker:latest";
