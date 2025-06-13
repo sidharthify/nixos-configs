@@ -69,8 +69,8 @@
         };
         volumes = [
           "/mnt/sda1/radarr/config:/config"
-          "/mnt/sda1/plex/media:/media"
-          "/mnt/sda1/downloads:/downloads"
+          "/mnt/sda1/media:/media"
+          "/mnt/sda1/data/torrents:/downloads"
         ];
         extraOptions = [ "--network=host" ];
       };
@@ -101,7 +101,7 @@
         };
         volumes = [
 	  "/mnt/sda1/qbittorrent/config:/config"
-          "/mnt/sda1/downloads:/downloads"
+          "/mnt/sda1/data/torrents:/downloads"
         ]; 
         ports = [
              "8080:8080"
@@ -120,7 +120,7 @@
         };
         volumes = [
           "/mnt/sda1/plex/config:/config"
-          "/mnt/sda1/plex/media:/data"
+          "/mnt/sda1/plex/media:/media:ro"
         ];
         extraOptions = [ "--network=host" ];
       };
