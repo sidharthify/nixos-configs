@@ -101,7 +101,7 @@
         };
         volumes = [
           "/mnt/sda1/qbittorrent/config:/config"
-          "/mnt/sda1/downloads:/data"
+          "/mnt/sda1/downloads:/downloads"
         ];
         ports = [ "127.0.0.1:8080:8080" ];
       };
