@@ -116,7 +116,7 @@
         environment = {
           TZ = "Asia/Kolkata";
           PLEX_CLAIM = "claim-jcxynZtWeZJamYzU8kFy";
-          ADVERTISE_IP = "http://192.168.1.184:32400/";
+          #ADVERTISE_IP = "http://192.168.1.184:32400/";
         };
         volumes = [
           "/mnt/sda1/plex/config:/config"
