@@ -19,6 +19,9 @@
           ND_LOGLEVEL = "info";
           ND_SCANINTERVAL = "1h";
           ND_MUSICFOLDER = "/music";
+          ND_LASTFM_ENABLED = "true";
+          ND_LASTFM_APIKEY = builtins.readFile "/etc/nixos-secrets/secrets/lastfm_api";
+          ND_LASTFM_SECRET = builtins.readFile "/etc/nixos-secrets/secrets/lastfm_secret";
         };
       };
 
