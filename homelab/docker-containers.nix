@@ -104,15 +104,15 @@
           WEBUI_PORTS = "8080/tcp,8080/udp";
         };
         volumes = [
-	  "/mnt/sda1/qbittorrent/config:/config"
+          "/mnt/sda1/qbittorrent/config:/config"
           "/mnt/sda1/data/torrents:/downloads"
-        ]; 
+        ];
         ports = [
-             "8080:8080"
-             "6881:6881"
-             "6881:6881/udp"
-             ];      
-           };
+          "8080:8080"
+          "6881:6881"
+          "6881:6881/udp"
+        ];
+      };
 
       # Plex
       plex = {
@@ -128,6 +128,49 @@
         ];
         extraOptions = [ "--network=host" ];
       };
+
+      # MySQL for Monica
+      monica-mysql = {
+        image = "mysql:5.7";
+        environment = {
+          MYSQL_RANDOM_ROOT_PASSWORD = "true";
+          MYSQL_DATABASE = "monica";
+          MYSQL_USER = "homestead";
+          MYSQL_PASSWORD = "secret";
+        };
+        volumes = [
+          "/mnt/sda1/monica/mysql:/var/lib/mysql"
+        ];
+        extraOptions = [ "--network=monica-network" ];
+      };
+
+      # Monica CRM
+      monica = {
+        image = "monica";
+        environment = {
+          DB_HOST = "monica-mysql";
+          DB_DATABASE = "monica";
+          DB_USERNAME = "homestead";
+          DB_PASSWORD = "secret";
+        };
+        ports = [ "8081:80" ];
+        volumes = [
+          "/mnt/sda1/monica/storage:/var/www/html/storage"
+        ];
+        extraOptions = [ "--network=monica-network" ];
+      };
     };
+  };
+
+    systemd.services.init-monica-network = {
+    description = "Create monica-network";
+    after = [ "docker.service" ];
+    requires = [ "docker.service" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.runtimeShell} -c '${pkgs.docker}/bin/docker network inspect monica-network >/dev/null 2>&1 || ${pkgs.docker}/bin/docker network create monica-network'";
+    };
+    wantedBy = [ "multi-user.target" ];
   };
 }
