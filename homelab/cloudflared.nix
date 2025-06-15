@@ -13,6 +13,7 @@ services.cloudflared = {
     ingress = {
       "music.sidharthify.me" = "http://localhost:4533";
       "nicotine.sidharthify.me" = "http://localhost:6080";
+      "monica.sidharthify.me" = "http://localhost:8081";
     };
   };
 };
