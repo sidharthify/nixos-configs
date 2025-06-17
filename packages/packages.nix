@@ -132,4 +132,5 @@ pkgs: with pkgs; [
     platformio
     element-desktop
     cloudflared
+    lunar-client
 ]
