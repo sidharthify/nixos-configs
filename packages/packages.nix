@@ -133,4 +133,5 @@ pkgs: with pkgs; [
     element-desktop
     cloudflared
     lunar-client
+    jadx
 ]
