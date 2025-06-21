@@ -134,4 +134,5 @@ pkgs: with pkgs; [
     cloudflared
     lunar-client
     jadx
+    termius
 ]
