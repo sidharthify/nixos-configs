@@ -135,4 +135,5 @@ pkgs: with pkgs; [
     lunar-client
     jadx
     termius
+    jq
 ]
