@@ -22,6 +22,7 @@
   ];
 
   environment.systemPackages = import ./packages/packages.nix pkgs;
+  system.stateVersion = "25.11";
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -133,4 +134,9 @@
 
   # openrgb
   services.hardware.openrgb.enable = true;
+
+  # auto updates
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+
 }
