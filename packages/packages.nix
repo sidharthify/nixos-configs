@@ -136,4 +136,5 @@ pkgs: with pkgs; [
     jadx
     termius
     jq
+    payload-dumper-go
 ]
