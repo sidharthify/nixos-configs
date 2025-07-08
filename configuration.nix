@@ -42,12 +42,15 @@
     LC_TIME = "en_IN";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
+    desktopManager.gnome.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
