@@ -137,4 +137,5 @@ pkgs: with pkgs; [
     termius
     jq
     payload-dumper-go
+    microsoft-edge
 ]
