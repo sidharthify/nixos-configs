@@ -142,10 +142,4 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
-  # timedatectl
-  services.timesyncd.enable = true;
-
-  # making sure it waits for internet
-  systemd.services.systemd-timesyncd.after = [ "network-online.target" ];
-  systemd.services.systemd-timesyncd.wants = [ "network-online.target" ];
 }
