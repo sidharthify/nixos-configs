@@ -93,13 +93,12 @@ pkgs: with pkgs; [
     xkeyboard_config
     glfw-wayland-minecraft
     zip
-    jdk21
+    jdk24
     git-repo
     gnumake
     coreutils
     autoconf
     automake
-    axel
     bc
     bison
     ccache
@@ -115,7 +114,7 @@ pkgs: with pkgs; [
     neovim
     binwalk
     tinyxxd
-    ghidra
+    ghidra-bin
     bfg-repo-cleaner
     clang-tools
     noto-fonts-cjk-sans
@@ -137,5 +136,5 @@ pkgs: with pkgs; [
     termius
     jq
     payload-dumper-go
-    microsoft-edge
+    heroic
 ]
