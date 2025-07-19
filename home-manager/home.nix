@@ -101,7 +101,8 @@
     enable = true;
     enabledCustomApps = with spicetify-nix.legacyPackages.${pkgs.system}.apps; [
       lyricsPlus
-      ncsVisualizer
+      reddit
+      marketplace
     ];
     enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
       adblockify
