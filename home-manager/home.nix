@@ -12,10 +12,10 @@
   programs.nixcord = {
     enable = true;
     config = {
-      useQuickCss = true;
-      themeLinks = [
-        "https://raw.githubusercontent.com/sidharthify/midnight-discord/refs/heads/master/themes/flavors/midnight-catppuccin-mocha.theme.css"
-      ];
+      #useQuickCss = true;
+      #themeLinks = [
+        #"https://raw.githubusercontent.com/sidharthify/midnight-discord/refs/heads/master/themes/flavors/midnight-catppuccin-mocha.theme.css"
+      #];
 plugins = {
   hideAttachments.enable = true;
   accountPanelServerProfile.enable = true;
