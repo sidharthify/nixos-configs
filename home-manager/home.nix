@@ -12,10 +12,10 @@
   programs.nixcord = {
     enable = true;
     config = {
-      #useQuickCss = true;
-      #themeLinks = [
-        #"https://raw.githubusercontent.com/sidharthify/midnight-discord/refs/heads/master/themes/flavors/midnight-catppuccin-mocha.theme.css"
-      #];
+      useQuickCss = true;
+      themeLinks = [
+        "https://raw.githubusercontent.com/sidharthify/midnight-discord/refs/heads/master/themes/flavors/midnight-catppuccin-mocha.theme.css"
+      ];
 plugins = {
   hideAttachments.enable = true;
   accountPanelServerProfile.enable = true;
@@ -101,20 +101,9 @@ plugins = {
   programs.spicetify = {
     enable = true;
     theme = spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
-    colorScheme = "mocha";
     enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
-      fullAppDisplay
-      shuffle
       adblock
-      bookmark
-      songStats
-      history
       lastfm
-      copyLyrics
-      volumePercentage
-      beautifulLyrics
-      betterGenres
-      copyToClipboard
     ];
   };
 
