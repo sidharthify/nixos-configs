@@ -100,7 +100,6 @@ plugins = {
   # Spicetify (spicetify-nix)
   programs.spicetify = {
     enable = true;
-    theme = spicetify-nix.legacyPackages.${pkgs.system}.themes.catppuccin;
     enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
       adblock
       lastfm
