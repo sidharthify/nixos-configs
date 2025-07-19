@@ -6,7 +6,7 @@
     home-manager.url = "github:nix-community/home-manager";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
-    nixcord.url = "github:builtbyvys/nixcord";
+    nixcord.url = "github:KaylorBen/nixcord";
   };
 
   outputs = { self, nixpkgs, spicetify-nix, zen-browser-source, home-manager, nixcord, ... }: {
