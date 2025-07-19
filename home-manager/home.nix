@@ -108,6 +108,7 @@
       hidePodcasts
       shuffle
       betterGenres
+      simpleBeautifulLyrics
     ];
     experimentalFeatures = true;
     alwaysEnableDevTools = true;
