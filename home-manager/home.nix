@@ -109,5 +109,7 @@
       shuffle
       betterGenres
     ];
+    experimentalFeatures = true;
+    alwaysEnableDevTools = true;
   };
 }
