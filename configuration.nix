@@ -82,6 +82,7 @@
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
+    twemoji-color-font
   ];
 
   # Adding user to audio group
