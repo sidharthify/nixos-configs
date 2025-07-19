@@ -1,6 +1,7 @@
 # packages.nix
 
 pkgs: with pkgs; [
+    brave
     vim
     sudo
     sof-firmware
