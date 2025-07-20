@@ -72,9 +72,6 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -82,7 +79,6 @@
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-    twemoji-color-font
   ];
 
   # Adding user to audio group
@@ -108,9 +104,6 @@
 
   # waydroid
   virtualisation.waydroid.enable = true;
-
-  # kde partition manager
-  programs.partition-manager.enable = true;
 
   # tmate
   services.tmate-ssh-server.enable = true;

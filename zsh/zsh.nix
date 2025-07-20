@@ -14,7 +14,7 @@
     update = "syncnix switch";  
     edit = "sudo nvim /etc/nixos/configuration.nix";
     edit-flake = "sudo nvim /etc/nixos/flake.nix";
-    edit-home = "sudo nvim /etc/nixos/home.nix";
+    edit-home = "sudo nvim /etc/nixos/home-manager/home.nix";
     edit-nixpkgs = "sudo nvim /etc/nixos/packages/packages.nix";
     edit-zsh = "sudo nvim /etc/nixos/zsh/zsh.nix";
     edit-cloudflared = "sudo nvim /etc/nixos/homelab/cloudflared.nix";
@@ -24,6 +24,7 @@
   histSize = 10000;
 
 interactiveShellInit = ''
+  # setfanspeed
   setfanspeed() {
     if [[ -z $1 ]]; then
       echo "usage: setfanspeed <0-100>"
