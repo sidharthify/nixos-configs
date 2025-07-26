@@ -2,6 +2,7 @@
 
 pkgs: with pkgs; [
     brave
+    yad
     vim
     sudo
     sof-firmware
