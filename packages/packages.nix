@@ -139,4 +139,5 @@ pkgs: with pkgs; [
     jq
     payload-dumper-go
     heroic
+    tesseract
 ]

@@ -132,6 +132,7 @@
   # openrgb
   services.hardware.openrgb.enable = true;
 
+
   # auto updates
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
