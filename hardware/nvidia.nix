@@ -11,4 +11,8 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
+
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_RegistryDwords="PerfLevelSrc=0x2222"
+  '';
 }
