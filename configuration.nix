@@ -80,6 +80,8 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
+    inter
+    jetbrains-mono
   ];
 
   # Adding user to audio group
