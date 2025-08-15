@@ -4,7 +4,6 @@
   imports = [
     ./hardware-configuration.nix
     ./homelab/docker-containers.nix
-    ./homelab/cloudflared.nix
     ./zsh/zsh.nix
     ./zerotier/zerotier-config.nix
     ./steam/steam.nix
