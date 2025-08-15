@@ -140,4 +140,5 @@ pkgs: with pkgs; [
     payload-dumper-go
     heroic
     tesseract
+    fwupd
 ]
