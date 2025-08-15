@@ -141,4 +141,5 @@ pkgs: with pkgs; [
     heroic
     tesseract
     fwupd
+    lm_sensors
 ]
