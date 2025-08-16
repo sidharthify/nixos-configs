@@ -1,7 +1,6 @@
 # packages.nix
 
 pkgs: with pkgs; [
-    brave
     yad
     vim
     sudo
