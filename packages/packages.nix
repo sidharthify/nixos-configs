@@ -70,7 +70,6 @@ pkgs: with pkgs; [
     steam-run
     nss
     fastfetch
-    vscodium
     anydesk
     easyeffects
     lsp-plugins
