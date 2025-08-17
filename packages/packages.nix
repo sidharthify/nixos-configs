@@ -141,5 +141,4 @@ pkgs: with pkgs; [
     tesseract
     fwupd
     lm_sensors
-    notion-app-enhanced
 ]
