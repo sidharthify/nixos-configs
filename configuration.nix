@@ -22,7 +22,6 @@
 
   environment.systemPackages = import ./packages/packages.nix pkgs;
   system.stateVersion = "25.11";
-  nixpkgs.config.allowUnsupportedSystem = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
