@@ -141,4 +141,5 @@ pkgs: with pkgs; [
     fwupd
     lm_sensors
     cabextract
+    chromium
 ]
