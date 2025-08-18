@@ -136,7 +136,6 @@ programs.vscode = {
       ms-toolsai.jupyter-renderers
       ms-toolsai.vscode-jupyter-cell-tags
       ms-toolsai.vscode-jupyter-slideshow
-      ms-vscode.cpptools
       ms-vscode.cmake-tools
       twxs.cmake
       rust-lang.rust-analyzer

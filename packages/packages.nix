@@ -140,4 +140,5 @@ pkgs: with pkgs; [
     tesseract
     fwupd
     lm_sensors
+    cabextract
 ]
