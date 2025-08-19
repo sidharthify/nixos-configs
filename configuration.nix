@@ -22,6 +22,7 @@
 
   environment.systemPackages = import ./packages/packages.nix pkgs;
   system.stateVersion = "25.11";
+  home-manager.backupFileExtension = "backup";
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";

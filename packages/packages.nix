@@ -142,4 +142,5 @@ pkgs: with pkgs; [
     lm_sensors
     cabextract
     chromium
+    nasm
 ]
