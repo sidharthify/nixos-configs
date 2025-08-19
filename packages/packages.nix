@@ -143,4 +143,5 @@ pkgs: with pkgs; [
     cabextract
     chromium
     nasm
+    cmake
 ]
