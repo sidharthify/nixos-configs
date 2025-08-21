@@ -137,4 +137,9 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
+  # firefox
+  programs.firefox = {
+  enable = true;
+  };
+
 }
