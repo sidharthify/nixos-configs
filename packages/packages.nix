@@ -148,5 +148,6 @@ pkgs: with pkgs; [
     kdePackages.qtwebsockets
     kdePackages.qtwebchannel
     kdePackages.mpvqt
+    (python312.withPackages (ps: with ps; [ websockets ]))
     (python312.withPackages (ps: with ps; [ websocket-client ]))
 ]
