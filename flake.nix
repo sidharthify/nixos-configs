@@ -7,9 +7,10 @@
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
     nixcord.url = "github:KaylorBen/nixcord";
+    lazyvim-nix.url = "github:jla2000/lazyvim-nix";
   };
 
-  outputs = { self, nixpkgs, spicetify-nix, zen-browser-source, home-manager, nixcord, ... }: {
+  outputs = { self, nixpkgs, spicetify-nix, zen-browser-source, home-manager, nixcord, lazyvim-nix, ... }: {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -23,7 +24,7 @@
             nixcord.homeModules.nixcord
           ];
           home-manager.extraSpecialArgs = {
-            inherit spicetify-nix;
+            inherit spicetify-nix lazyvim-nix;
           };
         }
         ({ pkgs, ... }: {
