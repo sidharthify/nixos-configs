@@ -144,4 +144,5 @@ pkgs: with pkgs; [
     chromium
     nasm
     cmake
+    brave
 ]
