@@ -18,7 +18,7 @@
     edit-nixpkgs = "sudo nvim /etc/nixos/packages/packages.nix";
     edit-zsh = "sudo nvim /etc/nixos/zsh/zsh.nix";
     edit-cloudflared = "sudo nvim /etc/nixos/homelab/cloudflared.nix";
-    mic-loopback = "pw-loopback --capture-props=node.name=MicLoopback --playback-props=node.target=52";  
+    mic-loopback = "pw-loopback --capture-props=node.name=MicLoopback --playback-props=node.target=51";  
 };
 
   histSize = 10000;
