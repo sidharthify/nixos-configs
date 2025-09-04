@@ -67,7 +67,7 @@
     isNormalUser = true;
     description = "sidharthify";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirt" "dialout" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     ];
