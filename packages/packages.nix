@@ -146,5 +146,7 @@ pkgs: with pkgs; [
     cmake
     brave
     imhex   
+    linuxPackages_latest.kernel.dev
+
 ]
 
