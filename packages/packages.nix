@@ -147,6 +147,6 @@ pkgs: with pkgs; [
     brave
     imhex   
     linuxPackages_latest.kernel.dev
-
+    linuxHeaders
 ]
 
