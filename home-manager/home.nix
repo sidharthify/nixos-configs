@@ -16,7 +16,6 @@
         "https://raw.githubusercontent.com/sidharthify/midnight-discord/refs/heads/master/themes/flavors/midnight-catppuccin-mocha.theme.css"
       ];
       plugins = {
-        hideAttachments.enable = true;
         accountPanelServerProfile.enable = true;
         alwaysAnimate.enable = true;
         alwaysExpandRoles.enable = true;
@@ -36,7 +35,6 @@
         customRPC.enable = true;
         disableCallIdle.enable = true;
         dontRoundMyTimestamps.enable = true;
-        emoteCloner.enable = true;
         experiments.enable = true;
         fakeNitro.enable = true;
         favoriteEmojiFirst.enable = true;
