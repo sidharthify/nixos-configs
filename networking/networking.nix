@@ -14,4 +14,10 @@
   networking.interfaces."wlp3s0".mtu = 1500;
   networking.firewall.allowedTCPPorts = [ 25565 ];
   networking.enableIPv6 = false;
+
+  boot.kernel.sysctl = {
+    "net.ipv6.conf.all.mldv2_unsolicited_report_interval" = 0;
+    "net.ipv6.conf.default.mldv2_unsolicited_report_interval" = 0;
+    };
 }
+
