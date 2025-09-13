@@ -148,5 +148,5 @@ pkgs: with pkgs; [
     imhex   
     linuxPackages_latest.kernel.dev
     linuxHeaders
+    tidal-hifi
 ]
-

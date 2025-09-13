@@ -142,4 +142,7 @@
   enable = true;
   };
 
+  # openrgb
+  services.hardware.openrgb.enable = true;
+
 }
