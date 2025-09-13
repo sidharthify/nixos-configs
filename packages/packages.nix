@@ -72,7 +72,6 @@ pkgs: with pkgs; [
     fastfetch
     anydesk
     easyeffects
-    lsp-plugins
     tmate-ssh-server
     tmate
     pipx
