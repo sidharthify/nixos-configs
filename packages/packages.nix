@@ -9,7 +9,6 @@ pkgs: with pkgs; [
     neofetch
     git
     telegram-desktop
-    python3Full
     hyfetch
     libnotify
     font-awesome
