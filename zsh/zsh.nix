@@ -10,6 +10,7 @@
   syntaxHighlighting.enable = true;
 
   shellAliases = {
+    bro = "sudo";
     ll = "ls -l";
     update = "syncnix switch";  
     edit = "sudo nvim /etc/nixos/configuration.nix";
