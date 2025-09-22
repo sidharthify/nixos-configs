@@ -147,4 +147,5 @@ pkgs: with pkgs; [
     linuxPackages_latest.kernel.dev
     linuxHeaders
     tidal-hifi
+    pcsx2
 ]
