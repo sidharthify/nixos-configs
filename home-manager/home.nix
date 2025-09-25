@@ -90,6 +90,8 @@
         pauseInvitesForever.enable = true;
         onePingPerDM.enable = true;
         mutualGroupDMs.enable = true;
+        shikiCodeblocks.enable = true;
+        spotifyControls.enable = true;
       };
     };
   };
