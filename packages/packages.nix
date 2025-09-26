@@ -148,4 +148,5 @@ pkgs: with pkgs; [
     linuxHeaders
     tidal-hifi
     pcsx2
+    affine
 ]
