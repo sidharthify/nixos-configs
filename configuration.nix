@@ -145,4 +145,8 @@
   # openrgb
   services.hardware.openrgb.enable = true;
 
+  # insecure packages        
+   nixpkgs.config.permittedInsecurePackages = [
+     "electron-35.7.5"
+   ];
 }
