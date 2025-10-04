@@ -44,13 +44,14 @@
 
   programs.ssh.askPassword = lib.mkForce "${pkgs.kdePackages.ksshaskpass}/bin/ksshaskpass";
 
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
-    desktopManager.cinnamon.enable = false;
-    desktopManager.gnome.enable = false;
+  # Desktop Environment
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
+
+  # Display Manager
+  services.displayManager = {
+    sddm.enable = true;
   };
 
   # Configure keymap in X11
