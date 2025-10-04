@@ -1,20 +1,38 @@
 #!/usr/bin/env zsh
 set -e
 
-cd /etc/nixos || exit 1
+# definitions
+NIX_DIR="/etc/nixos"
+CMD_REBUILD_NIX=(nixos-rebuild switch --impure)
+GIT=(sudo git)
+
+# colors
+RED='\033[0;31m'
+BLUE='\033[1;34m'
+NC='\033[0m'
+
+# push
+push() {
+  "${GIT[@]}" add .
+  "${GIT[@]}" commit -m "local-update: $(date '+%Y-%m-%d %H:%M:%S')"
+  "${GIT[@]}" push origin main
+}
+
+# enter nix dir
+cd "${NIX_DIR}" || exit 1
 
 # run nixos-rebuild, bail if it fails
-if ! sudo nixos-rebuild switch --impure; then
-  echo "nixos-rebuild failed. not committing."
+if ! sudo "${CMD_REBUILD_NIX[@]}"; then
+  echo -e "${BLUE}Syncnix:${NC} ${RED}ERROR:${NC} Failed to rebuild"
   exit 1
+else
+  echo -e "${BLUE}Syncnix: ${NC}NixOS rebuilt!"
 fi
 
 # commit & push if there are changes
-if [[ -n $(git status --porcelain) ]]; then
-  sudo git add .
-  sudo git commit -m "local-update: $(date '+%Y-%m-%d %H:%M:%S')"
-  sudo git push origin main
-  echo "pushed!"
+if [[ -n $("${GIT[@]}" status --porcelain) ]]; then
+  push
+  echo -e "${BLUE}Git: ${NC}Commit pushed!"
 else
-  echo "no changes to commit."
+  echo -e "${BLUE}Git:${NC} ${RED}ERROR:${NC} No changes to commit"
 fi
