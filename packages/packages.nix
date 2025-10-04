@@ -131,7 +131,7 @@ pkgs: with pkgs; [
     cloudflared
     lunar-client
     jadx
-    # missing lib for now - termius
+    termius
     jq
     payload-dumper-go
     heroic
