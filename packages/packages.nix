@@ -149,4 +149,5 @@ pkgs: with pkgs; [
     tidal-hifi
     pcsx2
     affine
+    vlc
 ]
