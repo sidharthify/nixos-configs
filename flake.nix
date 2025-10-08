@@ -8,10 +8,12 @@
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
     nixcord.url = "github:KaylorBen/nixcord";
     lazyvim-nix.url = "github:jla2000/lazyvim-nix";
+
     winboat.url = "github:TibixDev/winboat";
+
   };
 
-  outputs = { self, nixpkgs, spicetify-nix, zen-browser-source, home-manager, nixcord, lazyvim-nix, winboat, ... }: {
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, winboat, ... }: {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -25,13 +27,13 @@
             nixcord.homeModules.nixcord
           ];
           home-manager.extraSpecialArgs = {
-            inherit spicetify-nix lazyvim-nix winboat;
+            inherit spicetify-nix lazyvim-nix;
           };
         }
         ({ pkgs, ... }: {
           environment.systemPackages = with pkgs; [
             zen-browser-source.packages.x86_64-linux.default
-            # winboat.packages.x86_64-linux.default
+            winboat.packages.x86_64-linux.winboat
           ];
         })
       ];
