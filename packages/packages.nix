@@ -150,4 +150,5 @@ pkgs: with pkgs; [
     pcsx2
     affine
     vlc
+    freerdp
 ]
