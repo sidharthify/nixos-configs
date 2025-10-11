@@ -103,27 +103,28 @@ in
   # Spicetify (spicetify-nix)
   programs.spicetify = {
     enable = true;
-    colorScheme = "custom";
-    customColorScheme = {
-      text = "cdd6f4";
-      subtext = "bac2de";
-      extratext = "a6adc8";
-      main = "1e1e2e";
-      sidebar = "181825";
-      player = "11111b";
-      sec-player = "313244";
-      card = "45475a";
-      sec-card = "585b70";
-      shadow = "000000";
-      selected-row = "585b70";
-      button = "89b4fa";
-      button-active = "b4befe";
-      button-disabled = "6c7086";
-      tab-active = "f38ba8";
-      notification = "94e2d5";
-      notification-error = "f38ba8";
-      misc = "f9e2af";
-    };
+    theme = spicePkgs.themes.catppuccin;
+    #colorScheme = "custom";
+    #customColorScheme = {
+      #text = "cdd6f4";
+      #subtext = "bac2de";
+      #extratext = "a6adc8";
+      #main = "1e1e2e";
+      #sidebar = "181825";
+      #player = "11111b";
+      #sec-player = "313244";
+      #card = "45475a";
+      #sec-card = "585b70";
+      #shadow = "000000";
+      #selected-row = "585b70";
+      #button = "89b4fa";
+      #button-active = "b4befe";
+      #button-disabled = "6c7086";
+      #tab-active = "f38ba8";
+      #notification = "94e2d5";
+      #notification-error = "f38ba8";
+      #misc = "f9e2af";
+    #};
     enabledCustomApps = with spicePkgs.apps; [
       lyricsPlus
       reddit
