@@ -30,7 +30,7 @@ pkgs: with pkgs; [
     networkmanager_dmenu
     picom
     gh
-    mgba
+    # build error: mgba
     rpcs3
     haruna
     tenacity
@@ -91,7 +91,6 @@ pkgs: with pkgs; [
     xkeyboard_config
     glfw-wayland-minecraft
     zip
-    jdk24
     git-repo
     gnumake
     coreutils
