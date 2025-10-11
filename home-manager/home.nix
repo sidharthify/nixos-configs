@@ -1,5 +1,9 @@
 { config, pkgs, spicetify-nix, ... }:
 
+let
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.system};
+in
+
 {
   imports = [
     spicetify-nix.homeManagerModules.spicetify
@@ -120,12 +124,12 @@
       notification-error = "f38ba8";
       misc = "f9e2af";
     };
-    enabledCustomApps = with spicetify-nix.legacyPackages.${pkgs.system}.apps; [
+    enabledCustomApps = with spicePkgs.apps; [
       lyricsPlus
       reddit
       marketplace
     ];
-    enabledExtensions = with spicetify-nix.legacyPackages.${pkgs.system}.extensions; [
+    enabledExtensions = with spicePkgs.extensions; [
       adblockify
       hidePodcasts
       shuffle
