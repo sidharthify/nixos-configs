@@ -104,7 +104,7 @@ in
   programs.spicetify = {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
-    #colorScheme = "custom";
+    colorScheme = "mocha";
     #customColorScheme = {
       #text = "cdd6f4";
       #subtext = "bac2de";
