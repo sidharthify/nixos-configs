@@ -150,4 +150,5 @@ pkgs: with pkgs; [
     affine
     vlc
     freerdp
+    libreoffice-qt6-fresh
 ]
