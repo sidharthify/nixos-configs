@@ -20,6 +20,7 @@
     edit-zsh = "sudo nvim /etc/nixos/zsh/zsh.nix";
     edit-cloudflared = "sudo nvim /etc/nixos/homelab/cloudflared.nix";
     mic-loopback = "pw-loopback --capture-props=node.name=MicLoopback --playback-props=node.target=51";  
+    "sudo nixos-rebuild switch" = "syncnix"; 
 };
 
   histSize = 10000;
