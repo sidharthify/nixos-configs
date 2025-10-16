@@ -154,4 +154,5 @@ pkgs: with pkgs; [
     aria2
     parabolic
     discord
+  thunderbird
 ]
