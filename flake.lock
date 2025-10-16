@@ -369,11 +369,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1760642016,
-        "narHash": "sha256-tsgWy46+wto9SBjKTGyCDYuSymbhJgPkg0LK3TsHrnE=",
+        "lastModified": 1760642366,
+        "narHash": "sha256-dQKvoYb2trmAKBAlQIiaPsleK54utAePUHrftsrgi8Y=",
         "owner": "sidharthify",
         "repo": "nixstall",
-        "rev": "2b762835ed076793b3f9e90c07b8ef3d69e1e4f6",
+        "rev": "7565a9b7f76ddf5056426e6a165271d5850f1ecc",
         "type": "github"
       },
       "original": {
