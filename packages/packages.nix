@@ -153,4 +153,5 @@ pkgs: with pkgs; [
     libreoffice-qt6-fresh
     aria2
     parabolic
+    discord
 ]
