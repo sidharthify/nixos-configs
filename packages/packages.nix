@@ -112,8 +112,6 @@ pkgs: with pkgs; [
     binwalk
     tinyxxd
     ghidra-bin
-    bfg-repo-cleaner
-    clang-tools
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     ghostty
@@ -122,11 +120,7 @@ pkgs: with pkgs; [
     python312Packages.pip
     interception-tools
     kew
-    arduino-ide
     busybox
-    arduino-cli
-    platformio
-    element-desktop
     cloudflared
     lunar-client
     jadx
@@ -151,8 +145,5 @@ pkgs: with pkgs; [
     freerdp
     libreoffice-qt6-fresh
     aria2
-    parabolic
     discord
-  thunderbird
-  fsearch
 ]
