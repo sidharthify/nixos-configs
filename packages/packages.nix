@@ -151,4 +151,6 @@ pkgs: with pkgs; [
     vlc
     freerdp
     libreoffice-qt6-fresh
+    aria2
+    parabolic
 ]
