@@ -155,5 +155,4 @@ pkgs: with pkgs; [
     parabolic
     discord
   thunderbird
-  fsearch
 ]
