@@ -369,11 +369,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1760714390,
-        "narHash": "sha256-mDIklTJu5+VEGxUvyyC4XPjVh0z2Y5R7cUct2XfX/OA=",
+        "lastModified": 1760715612,
+        "narHash": "sha256-vkbEkNG8fkZhaAIQzPMDQ1tomvStMMSJeCZNsF7gV4I=",
         "owner": "sidharthify",
         "repo": "nixstall",
-        "rev": "690b7e1b98b52c229f4c41ceeae9a27d253afb2e",
+        "rev": "f573291ec122e7ae6c4c7cb9ef63c3cc031e211d",
         "type": "github"
       },
       "original": {
@@ -448,11 +448,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1760701108,
-        "narHash": "sha256-E3sbphJLIo0ixlrV1uYhOcg+XvKPJ/IaNdfnYB00+Hk=",
+        "lastModified": 1760714992,
+        "narHash": "sha256-u+wQPCTD6BzX+sEEhOsDuQabniGhr62LO6AAu2TIJ5E=",
         "owner": "TibixDev",
         "repo": "winboat",
-        "rev": "690ae047e9654af4e5e23e1c3858ba5f15a14763",
+        "rev": "41133d8ac84ced9e37a0b94c38d70c75ed48bad1",
         "type": "github"
       },
       "original": {
