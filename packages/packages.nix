@@ -144,4 +144,5 @@ pkgs: with pkgs; [
     libreoffice-qt6-fresh
     aria2
     discord
+  font-awesome
 ]
