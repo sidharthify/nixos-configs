@@ -105,7 +105,6 @@ pkgs: with pkgs; [
     meld
     git-lfs
     yt-dlp
-    vinegar
     rustdesk-flutter
     apple-cursor
     neovim
