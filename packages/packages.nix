@@ -145,4 +145,6 @@ pkgs: with pkgs; [
     aria2
     discord
   font-awesome
+  alacritty
+  htop
 ]
