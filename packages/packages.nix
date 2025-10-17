@@ -11,7 +11,6 @@ pkgs: with pkgs; [
     telegram-desktop
     hyfetch
     libnotify
-    font-awesome
     stow
     nwg-look
     lutris-unwrapped
