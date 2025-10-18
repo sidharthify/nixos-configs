@@ -69,12 +69,10 @@ pkgs: with pkgs; [
     nss
     fastfetch
     anydesk
-    easyeffects
     tmate-ssh-server
     tmate
     pipx
     blueman
-    p7zip
     pavucontrol
     file
     erofs-utils
@@ -134,8 +132,6 @@ pkgs: with pkgs; [
     cmake
     brave
     imhex   
-    linuxPackages_latest.kernel.dev
-    linuxHeaders
     tidal-hifi
     pcsx2
     affine
