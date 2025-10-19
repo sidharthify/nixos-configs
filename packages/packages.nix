@@ -143,4 +143,5 @@ pkgs: with pkgs; [
   font-awesome
   alacritty
   htop
+  isoimagewriter
 ]
