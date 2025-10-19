@@ -144,5 +144,4 @@ pkgs: with pkgs; [
   alacritty
   htop
   isoimagewriter
-  deskflow
 ]
