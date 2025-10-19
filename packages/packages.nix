@@ -144,6 +144,5 @@ pkgs: with pkgs; [
   alacritty
   htop
   isoimagewriter
-  input-leap
   deskflow
 ]
