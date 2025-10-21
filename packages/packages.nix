@@ -30,7 +30,7 @@ pkgs: with pkgs; [
     picom
     gh
     # build error: mgba
-    rpcs3
+    # build error: rpcs3
     haruna
     tenacity
     gamescope
@@ -133,7 +133,7 @@ pkgs: with pkgs; [
     brave
     imhex   
     tidal-hifi
-    pcsx2
+    # build error - pcsx2
     affine
     vlc
     freerdp
