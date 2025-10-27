@@ -142,6 +142,6 @@ pkgs: with pkgs; [
     discord
   font-awesome
   alacritty
-  htop
+  # # # # htop
   isoimagewriter
 ]
