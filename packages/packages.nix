@@ -144,4 +144,5 @@ pkgs: with pkgs; [
   alacritty
   # # # # htop
   isoimagewriter
+  android-studio-full
 ]

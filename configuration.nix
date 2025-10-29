@@ -151,6 +151,11 @@
      "electron-35.7.5"
    ];
 
+  # android-studio-license
+  nixpkgs.config = {
+    android_sdk.accept_license = true;
+  };
+
   # nh
   programs.nh = {
     enable = true;
