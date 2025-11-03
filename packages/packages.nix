@@ -86,7 +86,7 @@ pkgs: with pkgs; [
     libGLU
     pacman
     xkeyboard_config
-    glfw-wayland-minecraft
+    glfw3-minecraft
     zip
     git-repo
     gnumake

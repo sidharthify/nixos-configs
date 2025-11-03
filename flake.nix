@@ -8,11 +8,10 @@
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
     nixcord.url = "github:KaylorBen/nixcord";
     lazyvim-nix.url = "github:jla2000/lazyvim-nix";
-    nixstall.url = "github:sidharthify/nixstall";
-    winboat.url = "github:TibixDev/winboat";
+    syd.url = "github:sidharthify/syd";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, nixstall, winboat, ... }:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd,... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -42,8 +41,7 @@
           ({ pkgs, ... }: {
             environment.systemPackages = with pkgs; [
               zen-browser-source.packages.${system}.default
-              winboat.packages.${system}.winboat
-              nixstall.packages.${system}.default
+              syd.packages.${system}.default
             ];
           })
         ];

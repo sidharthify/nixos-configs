@@ -81,7 +81,7 @@
   fonts.packages = with pkgs; [
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     inter
     jetbrains-mono
   ];
@@ -105,7 +105,6 @@
 
   # coolercontrol
   programs.coolercontrol.enable = true;
-  programs.coolercontrol.nvidiaSupport = true;
 
   # waydroid
   virtualisation.waydroid.enable = true;
