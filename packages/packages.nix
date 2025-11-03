@@ -145,4 +145,5 @@ pkgs: with pkgs; [
   # # # # htop
   isoimagewriter
   android-studio-full
+  man-pages
 ]
