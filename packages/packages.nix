@@ -146,4 +146,5 @@ pkgs: with pkgs; [
   isoimagewriter
   android-studio-full
   man-pages
+  winboat
 ]
