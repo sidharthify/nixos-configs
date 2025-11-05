@@ -149,4 +149,5 @@ pkgs: with pkgs; [
   winboat
   gdb
   qemu
+  gdb-dashboard
 ]
