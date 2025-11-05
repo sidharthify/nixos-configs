@@ -147,4 +147,6 @@ pkgs: with pkgs; [
   android-studio-full
   man-pages
   winboat
+  gdb
+  qemu
 ]
