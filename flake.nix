@@ -11,7 +11,7 @@
     syd.url = "github:sidharthify/syd";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd,... }:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
@@ -44,6 +44,16 @@
               syd.packages.${system}.default
             ];
           })
+        ];
+      };
+
+      # RISC-V
+      devShells.x86_64-linux.riscv = pkgs.mkShell {
+        name = "riscv-dev-shell";
+        buildInputs = with pkgs.pkgsCross.riscv64-embedded; [
+          gcc
+          binutils
+          gdb
         ];
       };
     };
