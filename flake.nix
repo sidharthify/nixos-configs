@@ -46,15 +46,5 @@
           })
         ];
       };
-
-      # RISC-V
-      devShells.x86_64-linux.riscv = pkgs.mkShell {
-        name = "riscv-dev-shell";
-        buildInputs = with pkgs.pkgsCross.riscv64-embedded; [
-          gcc
-          binutils
-          gdb
-        ];
-      };
-    };
+  };
 }
