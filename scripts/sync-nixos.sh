@@ -14,7 +14,7 @@ NC='\033[0m'
 # push
 push() {
   "${GIT[@]}" add .
-  "${GIT[@]}" commit -m "local-update: $(date '+%Y-%m-%d %H:%M:%S')"
+  "${GIT[@]}" commit -m "serialExperimentsNix: $(date '+%Y-%m-%d %H:%M:%S')"
   "${GIT[@]}" push origin main
 }
 
