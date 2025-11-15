@@ -15,11 +15,10 @@ This is my personal /etc/nixos directory. Yes, the name is a Lain reference.
 | **hardware** | intel microcode, nvidia drivers, bluetooth, sata tuning, kernel config, extended font set |
 | **user environment** | home manager, zsh, lazyvim-nix, nixcord, spicetify-nix, zen browser, syd, custom packages |
 | **core system config** | bootloader, locale, time, keyboard layout, opengl stack, rebuild-triggered git sync |
-## repository structure
 
 ---
 
-### top level
+## root
 
 **flake.nix**  
 entry point of the entire configuration. defines all inputs, exposes the nixos system, and integrates home-manager and custom packages.
@@ -32,25 +31,25 @@ documentation for the repository.
 
 ---
 
-### home/
+## home/
 
 **home.nix**  
 home-manager configuration for the `sidharthify` user. defines the user environment: shell, editor, tooling, user-level services, and dotfiles.
 
 ---
 
-### nixos/
+## nixos/
 
 system-wide configuration lives here. these modules shape the behavior of the operating system, not just the user session.
 
 ---
 
-#### configuration.nix  
+### configuration.nix  
 the root nixos module. imports every other module inside the `nixos/` directory and assembles the complete system.
 
 ---
 
-### nixos/hardware/
+## nixos/hardware/
 
 hardware-specific settings. each file configures a physical aspect of the machine.
 
@@ -62,7 +61,7 @@ hardware-specific settings. each file configures a physical aspect of the machin
 
 ---
 
-### nixos/services/
+## nixos/services/
 
 background services and system daemons. these add functionality on top of the core OS.
 
@@ -77,7 +76,7 @@ background services and system daemons. these add functionality on top of the co
 
 ---
 
-### nixos/system/
+## nixos/system/
 
 core OS modules. these define essential system behavior and policy.
 
