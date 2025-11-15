@@ -3,7 +3,7 @@ set -e
 
 # definitions
 NIX_DIR="/etc/nixos"
-CMD_REBUILD_NIX=(nixos-rebuild switch --impure)
+CMD_REBUILD_NIX=(nh os switch)
 GIT=(sudo git)
 
 # colors
@@ -22,7 +22,7 @@ push() {
 cd "${NIX_DIR}" || exit 1
 
 # run nixos-rebuild, bail if it fails
-if ! sudo "${CMD_REBUILD_NIX[@]}"; then
+if ! "${CMD_REBUILD_NIX[@]}"; then
   echo -e "${BLUE}Syncnix:${NC} ${RED}ERROR:${NC} Failed to rebuild"
   exit 1
 else

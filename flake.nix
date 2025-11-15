@@ -1,50 +1,62 @@
 {
-  description = "sidharth's flake.nix";
+  description = "siddhi's flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
     nixcord.url = "github:KaylorBen/nixcord";
     lazyvim-nix.url = "github:jla2000/lazyvim-nix";
+
     syd.url = "github:sidharthify/syd";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-    in {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./configuration.nix
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd, ... }@inputs:
+  let
+    system = "x86_64-linux";
 
-          home-manager.nixosModules.home-manager
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+  in {
 
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      inherit system;
 
-            home-manager.users.sidharthify = import ./home-manager/home.nix;
+      specialArgs = { inherit inputs; };
 
-            home-manager.sharedModules = [
-              nixcord.homeModules.nixcord
-            ];
+      modules = [
+        ./nixos/configuration.nix
 
-            home-manager.extraSpecialArgs = {
-              inherit spicetify-nix lazyvim-nix;
-            };
-          }
+        home-manager.nixosModules.home-manager
 
-          ({ pkgs, ... }: {
-            environment.systemPackages = with pkgs; [
-              zen-browser-source.packages.${system}.default
-              syd.packages.${system}.default
-            ];
-          })
-        ];
-      };
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          home-manager.users.sidharthify = import ./home/home.nix;
+
+          home-manager.sharedModules = [
+            nixcord.homeModules.nixcord
+          ];
+
+          home-manager.extraSpecialArgs = {
+            inherit spicetify-nix lazyvim-nix;
+          };
+        }
+
+        {
+          environment.systemPackages = [
+            zen-browser-source.packages.${system}.default
+            syd.packages.${system}.default
+          ];
+        }
+      ];
+    };
   };
 }

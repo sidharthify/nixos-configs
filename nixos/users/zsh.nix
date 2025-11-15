@@ -10,15 +10,8 @@
   syntaxHighlighting.enable = true;
 
   shellAliases = {
-    bro = "sudo";
     ll = "ls -l";
-    update = "syncnix switch";  
-    edit = "sudo nvim /etc/nixos/configuration.nix";
-    edit-flake = "sudo nvim /etc/nixos/flake.nix";
-    edit-home = "sudo nvim /etc/nixos/home-manager/home.nix";
-    edit-nixpkgs = "sudo nvim /etc/nixos/packages/packages.nix";
-    edit-zsh = "sudo nvim /etc/nixos/zsh/zsh.nix";
-    edit-cloudflared = "sudo nvim /etc/nixos/homelab/cloudflared.nix";
+    fuckoff = "shutdown now";
     mic-loopback = "pw-loopback --capture-props=node.name=MicLoopback --playback-props=node.target=51";  
 };
 
@@ -43,7 +36,7 @@ interactiveShellInit = ''
 
  # syncnix
  syncnix() {
- /etc/nixos/sync-nixos.sh "$@"
+ /etc/nixos/scripts/sync-nixos.sh "$@"
  }
 '';
   };

@@ -32,14 +32,14 @@ pkgs: with pkgs; [
     # build error: mgba
     # build error: rpcs3
     haruna
-    tenacity
+    # build error: tenacity
     gamescope
     qbittorrent
     dxvk
     vkd3d
     vulkan-tools
     gtk3
-    protonvpn-gui
+    # build error: protonvpn-gui
     lm_sensors
     hexyl
     zenity
@@ -102,7 +102,6 @@ pkgs: with pkgs; [
     meld
     git-lfs
     yt-dlp
-    rustdesk-flutter
     apple-cursor
     neovim
     binwalk
@@ -131,7 +130,7 @@ pkgs: with pkgs; [
     nasm
     cmake
     brave
-    imhex   
+    # build error - imhex   
     tidal-hifi
     # build error - pcsx2
     affine
@@ -142,12 +141,13 @@ pkgs: with pkgs; [
     discord
   font-awesome
   alacritty
-  # # # # htop
+  htop
   isoimagewriter
-  android-studio-full
+  # dont want for now - android-studio-full
   man-pages
   winboat
   gdb
   qemu
   gdb-dashboard
+  nodejs
 ]
