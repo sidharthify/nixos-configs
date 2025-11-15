@@ -1,6 +1,21 @@
 ### serialExperimentsNix
 This is my personal /etc/nixos directory. Yes, the name is a Lain reference.
 
+### Overview
+
+| category | components |
+|---------|------------|
+| **desktop** | plasma 6, sddm, xdg-desktop-portal, openrgb |
+| **audio and media** | pipewire, wireplumber, steam, flatpak, tmate |
+| **networking** | networkmanager, openssh, zerotier, waydroid networking |
+| **system tools** | nh, git auto-sync via systemd, nix-ld, zram, docker, cups, system auto-upgrade |
+| **virtualization** | libvirt, qemu, waydroid, declarative docker containers |
+| **hardware** | intel microcode, nvidia drivers, bluetooth, sata tuning, kernel config, extended font set |
+| **user environment** | home manager, zsh, lazyvim-nix, nixcord, spicetify-nix, zen browser, syd, custom packages |
+| **core system config** | bootloader, locale, time, keyboard layout, opengl stack, rebuild-triggered git sync |
+
+
+
 ### Tree Hiearchy
 ```
 ├── flake.nix                   entry point, defines inputs and exposes the nixos configuration
