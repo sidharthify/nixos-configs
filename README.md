@@ -2,7 +2,7 @@
 This is my personal /etc/nixos directory. Yes, the name is a Lain reference.
 
 ### Tree Hiearchy
-.
+```
 ├── flake.nix                   entry point, defines inputs and exposes the nixos configuration
 ├── flake.lock                 pinned versions of all inputs, guarantees reproducibility
 ├── README.md                  documentation
@@ -55,4 +55,4 @@ This is my personal /etc/nixos directory. Yes, the name is a Lain reference.
 │
 └── scripts/
     └── sync-nixos.sh          the sync-nixos script, rebuilds and pushes automatically
-
+```
