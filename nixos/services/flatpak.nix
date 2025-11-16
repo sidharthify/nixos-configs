@@ -21,6 +21,7 @@
     "net.nokyan.Resources"
     "org.kde.kclock"
     "org.vinegarhq.Sober"
+    "io.github.ronniedroid.concessio"
   ];
 
 }
