@@ -42,10 +42,6 @@
 
           home-manager.users.sidharthify = import ./home/home.nix;
 
-          home-manager.sharedModules = [
-            nixcord.homeModules.nixcord
-          ];
-
           home-manager.extraSpecialArgs = {
             inherit spicetify-nix lazyvim-nix;
           };
