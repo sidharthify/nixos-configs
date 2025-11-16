@@ -11,11 +11,11 @@
     zen-browser-source.url = "github:youwen5/zen-browser-flake";
     nixcord.url = "github:KaylorBen/nixcord";
     lazyvim-nix.url = "github:jla2000/lazyvim-nix";
-
     syd.url = "github:sidharthify/syd";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
   };
 
-  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, spicetify-nix, zen-browser-source, nixcord, lazyvim-nix, syd, nix-flatpak, ... }@inputs:
   let
     system = "x86_64-linux";
 
@@ -32,6 +32,8 @@
 
       modules = [
         ./nixos/configuration.nix
+
+        nix-flatpak.nixosModules.nix-flatpak
 
         home-manager.nixosModules.home-manager
 
