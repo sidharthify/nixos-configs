@@ -1,8 +1,6 @@
 { config, pkgs, spicetify-nix, ... }:
 
 {
-
-  # Vencord (Nixcord)
   programs.nixcord = {
     enable = true;
     config = {

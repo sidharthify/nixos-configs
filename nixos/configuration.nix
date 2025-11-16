@@ -41,4 +41,5 @@
   environment.systemPackages = import ../packages/packages.nix pkgs;
 
   system.stateVersion = "25.11";
+
 }

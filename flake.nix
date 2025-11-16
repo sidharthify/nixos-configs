@@ -43,6 +43,8 @@
           home-manager.users.sidharthify = {
             imports = [
               ./home/home.nix
+              ./home/spicetify.nix
+              ./home/vscodium.nix
               ./home/nixcord.nix
             ];
           };
