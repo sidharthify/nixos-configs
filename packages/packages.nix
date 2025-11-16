@@ -147,7 +147,7 @@ pkgs: with pkgs; [
   man-pages
   winboat
   gdb
-  qemu
+  # qemu
   gdb-dashboard
   nodejs
 ]
