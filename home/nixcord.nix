@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, spicetify-nix, ... }:
+
 {
   # Vencord (Nixcord)
   programs.nixcord = {
