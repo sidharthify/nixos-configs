@@ -150,4 +150,5 @@ pkgs: with pkgs; [
   qemu
   gdb-dashboard
   nodejs
+  protontricks
 ]
