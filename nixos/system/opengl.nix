@@ -2,15 +2,17 @@
 
 {
   hardware.graphics = {
-  enable = true;
-  extraPackages = with pkgs; [
-    vulkan-loader
-    vulkan-validation-layers
-    vulkan-tools
-  ];
+    enable = true;
 
-  extraPackages32 = with pkgs.pkgsi686Linux; [
-    vulkan-loader
-  ];
-};
+    extraPackages = with pkgs; [
+      vulkan-loader
+      vulkan-validation-layers
+      vulkan-tools
+    ];
+
+    extraPackages32 = with pkgs.pkgsi686Linux; [
+      vulkan-loader
+      freetype
+    ];
+  };
 }
