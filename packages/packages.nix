@@ -151,4 +151,5 @@ pkgs: with pkgs; [
   gdb-dashboard
   nodejs
   protontricks
+  pkgsi686Linux.freetype
 ]
