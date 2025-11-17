@@ -145,7 +145,7 @@ pkgs: with pkgs; [
   isoimagewriter
   # dont want for now - android-studio-full
   man-pages
-  winboat
+  # winboat
   gdb
   qemu
   gdb-dashboard
