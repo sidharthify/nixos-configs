@@ -26,6 +26,7 @@
     ./system/auto-upgrade.nix
 
     ./services/docker-containers.nix
+    ./services/orca.nix
     ./services/pipewire.nix
     ./services/steam.nix
     ./services/zerotier-config.nix
