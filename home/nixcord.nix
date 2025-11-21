@@ -61,7 +61,6 @@
         quickReply.enable = true;
         platformIndicators.enable = true;
         noBlockedMessages.enable = true;
-        moreUserTags.enable = true;
         messageLogger.enable = true;
         memberCount.enable = true;
         lastFMRichPresence.enable = true;
@@ -85,6 +84,8 @@
         mutualGroupDMs.enable = true;
         shikiCodeblocks.enable = true;
         spotifyControls.enable = true;
+        userVoiceShow.enable = true;
+        reviewDB.enable = true;        
       };
     };
   };
